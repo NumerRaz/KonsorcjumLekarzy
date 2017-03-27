@@ -3,15 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Model.Abstract;
+using Model.Entities;
 
 namespace KonsorcjumLekarzy.Controllers
 {
     public class UserController : Controller
     {
-        // GET: User
-        public ActionResult Index()
+        private IUserRepository userRepository;
+
+        public UserController(IUserRepository repository)
         {
-            return View();
+            this.userRepository = repository;
+        }
+        //ToDo: View Drs
+        public ViewResult UsersList()
+        {
+            return View(userRepository.Users);
         }
     }
 }
