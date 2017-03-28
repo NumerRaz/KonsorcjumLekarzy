@@ -305,6 +305,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Infrastructure\" />
     <Folder Include="Repository\" />
     <Folder Include="Scripts\Site\" />
     <Folder Include="Services\" />
