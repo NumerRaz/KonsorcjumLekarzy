@@ -14,20 +14,12 @@ namespace Model
     
     public partial class Doctor
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Doctor()
-        {
-            this.DoctorType = new HashSet<DoctorType>();
-        }
-    
         public int DoctorID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
         public decimal PhoneNumber { get; set; }
-        public int DoctorTypeID { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DoctorType> DoctorType { get; set; }
+        public virtual DoctorType DoctorType { get; set; }
     }
 }

@@ -16,7 +16,5 @@ namespace Model
     {
         public int DoctorTypeID { get; set; }
         public string DoctorTypeName { get; set; }
-    
-        public virtual Doctor Doctor { get; set; }
     }
 }

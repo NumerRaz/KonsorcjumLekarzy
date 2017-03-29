@@ -8,9 +8,9 @@
   <EntityContainer Name="ModelORMStoreContainer">
     <EntitySet Name="DoctorSet" EntityType="ModelORM.Store.DoctorSet" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="DoctorTypeSet" EntityType="ModelORM.Store.DoctorTypeSet" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="DoctorTypeDoctor" Association="ModelORM.Store.DoctorTypeDoctor">
-      <End Role="DoctorType" EntitySet="DoctorTypeSet" />
+    <AssociationSet Name="DoctorDoctorType" Association="ModelORM.Store.DoctorDoctorType">
       <End Role="Doctor" EntitySet="DoctorSet" />
+      <End Role="DoctorType" EntitySet="DoctorTypeSet" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="DoctorSet">
@@ -22,7 +22,7 @@
     <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
     <Property Name="PhoneNumber" Type="decimal" Nullable="false" />
-    <Property Name="DoctorTypeID" Type="int" Nullable="false" />
+    <Property Name="DoctorType_DoctorTypeID" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="DoctorTypeSet">
     <Key>
@@ -30,17 +30,16 @@
     </Key>
     <Property Name="DoctorTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="DoctorTypeName" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Doctor_DoctorID" Type="int" Nullable="false" />
   </EntityType>
-  <Association Name="DoctorTypeDoctor">
-    <End Role="DoctorType" Type="ModelORM.Store.DoctorTypeSet" Multiplicity="*" />
-    <End Role="Doctor" Type="ModelORM.Store.DoctorSet" Multiplicity="1" />
+  <Association Name="DoctorDoctorType">
+    <End Role="Doctor" Type="ModelORM.Store.DoctorSet" Multiplicity="*" />
+    <End Role="DoctorType" Type="ModelORM.Store.DoctorTypeSet" Multiplicity="1" />
     <ReferentialConstraint>
-      <Principal Role="Doctor">
-        <PropertyRef Name="DoctorID" />
+      <Principal Role="DoctorType">
+        <PropertyRef Name="DoctorTypeID" />
       </Principal>
-      <Dependent Role="DoctorType">
-        <PropertyRef Name="Doctor_DoctorID" />
+      <Dependent Role="Doctor">
+        <PropertyRef Name="DoctorType_DoctorTypeID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -51,9 +50,9 @@
         <EntityContainer Name="ModelORMContainer" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="DoctorSet" EntityType="ModelORM.Doctor" />
           <EntitySet Name="DoctorTypeSet" EntityType="ModelORM.DoctorType" />
-          <AssociationSet Name="DoctorTypeDoctor" Association="ModelORM.DoctorTypeDoctor">
-            <End Role="DoctorType" EntitySet="DoctorTypeSet" />
+          <AssociationSet Name="DoctorDoctorType" Association="ModelORM.DoctorDoctorType">
             <End Role="Doctor" EntitySet="DoctorSet" />
+            <End Role="DoctorType" EntitySet="DoctorTypeSet" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Doctor">
@@ -65,8 +64,7 @@
           <Property Name="LastName" Type="String" Nullable="false" />
           <Property Name="Email" Type="String" Nullable="false" />
           <Property Name="PhoneNumber" Type="Decimal" Nullable="false" />
-          <Property Name="DoctorTypeID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="DoctorType" Relationship="ModelORM.DoctorTypeDoctor" FromRole="Doctor" ToRole="DoctorType" />
+          <NavigationProperty Name="DoctorType" Relationship="ModelORM.DoctorDoctorType" FromRole="Doctor" ToRole="DoctorType" />
         </EntityType>
         <EntityType Name="DoctorType">
           <Key>
@@ -74,11 +72,10 @@
           </Key>
           <Property Name="DoctorTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DoctorTypeName" Type="String" Nullable="false" />
-          <NavigationProperty Name="Doctor" Relationship="ModelORM.DoctorTypeDoctor" FromRole="DoctorType" ToRole="Doctor" />
         </EntityType>
-        <Association Name="DoctorTypeDoctor">
-          <End Type="ModelORM.DoctorType" Role="DoctorType" Multiplicity="*" />
-          <End Type="ModelORM.Doctor" Role="Doctor" Multiplicity="1" />
+        <Association Name="DoctorDoctorType">
+          <End Type="ModelORM.Doctor" Role="Doctor" Multiplicity="0..1" />
+          <End Type="ModelORM.DoctorType" Role="DoctorType" Multiplicity="1" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -94,7 +91,6 @@
           <ScalarProperty Name="LastName" ColumnName="LastName" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-          <ScalarProperty Name="DoctorTypeID" ColumnName="DoctorTypeID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -106,12 +102,12 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="DoctorTypeDoctor" TypeName="ModelORM.DoctorTypeDoctor" StoreEntitySet="DoctorTypeSet">
-      <EndProperty Name="Doctor">
-        <ScalarProperty Name="DoctorID" ColumnName="Doctor_DoctorID" />
-      </EndProperty>
+    <AssociationSetMapping Name="DoctorDoctorType" TypeName="ModelORM.DoctorDoctorType" StoreEntitySet="DoctorSet">
       <EndProperty Name="DoctorType">
-        <ScalarProperty Name="DoctorTypeID" ColumnName="DoctorTypeID" />
+        <ScalarProperty Name="DoctorTypeID" ColumnName="DoctorType_DoctorTypeID" />
+      </EndProperty>
+      <EndProperty Name="Doctor">
+        <ScalarProperty Name="DoctorID" ColumnName="DoctorID" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>

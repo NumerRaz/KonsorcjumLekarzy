@@ -1,4 +1,4 @@
-﻿@using Model.Entities
+﻿@using Model
 @model IEnumerable<Doctor>
 @{
     ViewBag.Title = "DoctorList";
@@ -10,6 +10,6 @@
         <h3>@doc.FirstName</h3>
         <h3>@doc.LastName</h3>
         <h3>@doc.PhoneNumber.ToString()</h3>
-        <h3>@doc.UserType</h3>
+        <h3>@doc.DoctorType</h3>
     </div>
 }
