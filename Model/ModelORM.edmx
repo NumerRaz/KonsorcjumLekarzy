@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ModelORM.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModelORMStoreContainer">
+    <EntitySet Name="DoctorSet" EntityType="ModelORM.Store.DoctorSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DoctorTypeSet" EntityType="ModelORM.Store.DoctorTypeSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="DoctorTypeDoctor" Association="ModelORM.Store.DoctorTypeDoctor">
+      <End Role="DoctorType" EntitySet="DoctorTypeSet" />
+      <End Role="Doctor" EntitySet="DoctorSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="DoctorSet">
+    <Key>
+      <PropertyRef Name="DoctorID" />
+    </Key>
+    <Property Name="DoctorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PhoneNumber" Type="decimal" Nullable="false" />
+    <Property Name="DoctorTypeID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DoctorTypeSet">
+    <Key>
+      <PropertyRef Name="DoctorTypeID" />
+    </Key>
+    <Property Name="DoctorTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DoctorTypeName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Doctor_DoctorID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="DoctorTypeDoctor">
+    <End Role="DoctorType" Type="ModelORM.Store.DoctorTypeSet" Multiplicity="*" />
+    <End Role="Doctor" Type="ModelORM.Store.DoctorSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Doctor">
+        <PropertyRef Name="DoctorID" />
+      </Principal>
+      <Dependent Role="DoctorType">
+        <PropertyRef Name="Doctor_DoctorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ModelORM" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ModelORMContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DoctorSet" EntityType="ModelORM.Doctor" />
+          <EntitySet Name="DoctorTypeSet" EntityType="ModelORM.DoctorType" />
+          <AssociationSet Name="DoctorTypeDoctor" Association="ModelORM.DoctorTypeDoctor">
+            <End Role="DoctorType" EntitySet="DoctorTypeSet" />
+            <End Role="Doctor" EntitySet="DoctorSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Doctor">
+          <Key>
+            <PropertyRef Name="DoctorID" />
+          </Key>
+          <Property Name="DoctorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" />
+          <Property Name="LastName" Type="String" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" />
+          <Property Name="PhoneNumber" Type="Decimal" Nullable="false" />
+          <Property Name="DoctorTypeID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DoctorType" Relationship="ModelORM.DoctorTypeDoctor" FromRole="Doctor" ToRole="DoctorType" />
+        </EntityType>
+        <EntityType Name="DoctorType">
+          <Key>
+            <PropertyRef Name="DoctorTypeID" />
+          </Key>
+          <Property Name="DoctorTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DoctorTypeName" Type="String" Nullable="false" />
+          <NavigationProperty Name="Doctor" Relationship="ModelORM.DoctorTypeDoctor" FromRole="DoctorType" ToRole="Doctor" />
+        </EntityType>
+        <Association Name="DoctorTypeDoctor">
+          <End Type="ModelORM.DoctorType" Role="DoctorType" Multiplicity="*" />
+          <End Type="ModelORM.Doctor" Role="Doctor" Multiplicity="1" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelORMStoreContainer" CdmEntityContainer="ModelORMContainer">
+    <EntitySetMapping Name="DoctorSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelORM.Doctor)">
+        <MappingFragment StoreEntitySet="DoctorSet">
+          <ScalarProperty Name="DoctorID" ColumnName="DoctorID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="DoctorTypeID" ColumnName="DoctorTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DoctorTypeSet">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelORM.DoctorType)">
+        <MappingFragment StoreEntitySet="DoctorTypeSet">
+          <ScalarProperty Name="DoctorTypeID" ColumnName="DoctorTypeID" />
+          <ScalarProperty Name="DoctorTypeName" ColumnName="DoctorTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="DoctorTypeDoctor" TypeName="ModelORM.DoctorTypeDoctor" StoreEntitySet="DoctorTypeSet">
+      <EndProperty Name="Doctor">
+        <ScalarProperty Name="DoctorID" ColumnName="Doctor_DoctorID" />
+      </EndProperty>
+      <EndProperty Name="DoctorType">
+        <ScalarProperty Name="DoctorTypeID" ColumnName="DoctorTypeID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

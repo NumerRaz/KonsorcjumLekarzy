@@ -1,0 +1,15 @@
+﻿@using Model.Entities
+@model IEnumerable<Doctor>
+@{
+    ViewBag.Title = "DoctorList";
+}
+
+@foreach (var doc in Model)
+{
+    <div>
+        <h3>@doc.FirstName</h3>
+        <h3>@doc.LastName</h3>
+        <h3>@doc.PhoneNumber.ToString()</h3>
+        <h3>@doc.UserType</h3>
+    </div>
+}
