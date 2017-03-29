@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Model.Entities;
+using Model;
 
 namespace Model.Abstract
 {
-    public interface IUserRepository
+    public interface IDoctorRepository
     {
-        IEnumerable<User> Users { get; }
+        IEnumerable<Doctor> Doctors { get; }
     }
 }
