@@ -12,14 +12,15 @@ namespace KonsorcjumLekarzy.Controllers
     {
         private IDoctorRepository repository;
 
-        DoctorController(IDoctorRepository repo)
+        public DoctorController(IDoctorRepository repo)
         {
             this.repository = repo;
         }
 
         public ViewResult DoctorList()
         {
-            return View(repository.Doctors);
+            var model = repository.Doctors(); 
+            return View(model);
         }
     }
 }

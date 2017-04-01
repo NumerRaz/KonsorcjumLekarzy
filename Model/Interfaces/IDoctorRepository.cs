@@ -9,6 +9,6 @@ namespace Model.Abstract
 {
     public interface IDoctorRepository
     {
-        IEnumerable<Doctor> Doctors { get; }
+        IEnumerable<Doctor> Doctors();
     }
 }

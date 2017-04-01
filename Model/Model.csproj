@@ -51,7 +51,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstract\IDoctorRepository.cs" />
+    <Compile Include="Model\DoctorRepository.cs" />
+    <Compile Include="Interfaces\IDoctorRepository.cs" />
     <Compile Include="Doctor.cs">
       <DependentUpon>ModelORM.tt</DependentUpon>
     </Compile>
