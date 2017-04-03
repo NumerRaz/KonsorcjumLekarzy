@@ -1,0 +1,56 @@
+﻿@import 'variables.scss';
+
+.body-content{
+    margin-top: 50px;
+}
+
+.side-nav{
+    margin-left: -225px;
+}
+
+.font{
+    &--sidenav{
+        font-size: $mainFontSize;
+    }
+    
+    &--nav{
+        font-size: $navFontSize * 0.8;
+    }
+
+    &--main{
+        font-size: $mainFontSize * 1.5;
+    }
+
+    &--submain{
+        font-size: $mainFontSize;
+    }
+}
+
+.navbar-brand{
+    font-size: $navFontSize;
+}
+
+.header{
+    &--register{
+        text-align: center;
+        font-size: 25px;
+        margin-top: 10px;
+    }
+}
+
+.btn{
+    &--register{
+        font-size: $mainFontSize * 0.8;
+        float: right;
+        width: 150px;
+        height: 45px;
+        text-align: center;
+        background-color: #1b1b1b;
+        color: white;
+        
+        &:hover{
+            background-color: #940000;
+            color: white;
+        }
+    }
+}

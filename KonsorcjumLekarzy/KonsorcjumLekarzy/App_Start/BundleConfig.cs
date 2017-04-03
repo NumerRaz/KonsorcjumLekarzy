@@ -17,6 +17,7 @@ namespace KonsorcjumLekarzy
             
             var initStyle = new StyleBundle("~/Content/css")
                 .Include("~/Content/bootstrap.css",
+                      "~/Content/sb-admin.css",
                       "~/Content/site.css");
 
             var angular = new StyleBundle("~/angular")
