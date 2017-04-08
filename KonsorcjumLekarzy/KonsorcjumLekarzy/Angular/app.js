@@ -1,5 +1,6 @@
 ﻿(function() {
 
-    const app = angular.module("app", []);
-    
-})()
+    const app = angular.module("app", ['ngComponentRouter']);
+
+
+})();

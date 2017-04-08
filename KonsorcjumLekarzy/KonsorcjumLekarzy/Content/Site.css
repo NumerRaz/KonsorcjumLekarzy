@@ -2,20 +2,21 @@
 .body-content {
   margin-top: 50px; }
 
-.side-nav {
-  margin-left: -225px; }
+.list--li {
+  width: 100px;
+  text-align: center; }
 
 .font--sidenav {
-  font-size: 20px; }
+  font-size: 18px; }
 
 .font--nav {
   font-size: 20px; }
 
 .font--main {
-  font-size: 30px; }
+  font-size: 27px; }
 
 .font--submain {
-  font-size: 20px; }
+  font-size: 18px; }
 
 .navbar-brand {
   font-size: 25px; }
@@ -26,7 +27,7 @@
   margin-top: 10px; }
 
 .btn--register {
-  font-size: 16px;
+  font-size: 14.4px;
   float: right;
   width: 150px;
   height: 45px;
@@ -36,4 +37,37 @@
   .btn--register:hover {
     background-color: #940000;
     color: white; }
+
+.log-in-external {
+  margin-top: 53px; }
+
+.aside {
+  z-index: 1000;
+  position: fixed;
+  left: 250px;
+  width: 250px;
+  height: 100%;
+  margin-left: -250px;
+  overflow-y: auto;
+  background: #000; }
+
+.sidebar-nav {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  margin: 0;
+  list-style: none;
+  background-color: black; }
+
+.sidebar-nav-panel {
+  height: 45px;
+  font-size: 20px;
+  text-indent: 20px;
+  line-height: 40px;
+  padding: 0 2px; }
+  .sidebar-nav-panel a {
+    color: #999999; }
+  .sidebar-nav-panel:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.2); }
 

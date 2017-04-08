@@ -4,8 +4,12 @@
     margin-top: 50px;
 }
 
-.side-nav{
-    margin-left: -225px;
+
+.list{
+    &--li{
+        width: 100px;
+        text-align: center;
+    }
 }
 
 .font{
@@ -53,4 +57,8 @@
             color: white;
         }
     }
+}
+
+.log-in-external{
+    margin-top: 53px;
 }
