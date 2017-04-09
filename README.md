@@ -10,3 +10,8 @@
 # Na trello ma się pojawić to co było wynagane - gant, założenia, prezentacja
 # Jeżeli projekt nie będzie taki jak w zalożeniach to 2
 # Osoba, która nic nie robi też dostaje 2
+
+08/04 Do zrobienie
+# Podział ganta na kluczowe funkcjonalności.  
+# Wprowadzenie testow automatycznych. 
+# Wszyscy na zajecia następnym razem. 
