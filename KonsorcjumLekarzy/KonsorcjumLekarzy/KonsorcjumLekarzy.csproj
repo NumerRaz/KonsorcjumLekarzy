@@ -26,6 +26,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <ApplicationInsightsResourceId>/subscriptions/282cf895-1ed6-4e56-bc39-cb01384423d8/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/KonsorcjumLekarzy</ApplicationInsightsResourceId>
+    <ApplicationInsightsAnnotationResourceId>/subscriptions/282cf895-1ed6-4e56-bc39-cb01384423d8/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/KonsorcjumLekarzy</ApplicationInsightsAnnotationResourceId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -630,19 +631,20 @@
     <Content Include="Content\sass\theme\_socicon.scss" />
     <Content Include="Content\sass\theme\_table.scss" />
     <Content Include="Content\sass\theme\_tree.scss" />
-    <None Include="Properties\PublishProfiles\konsorcjumlekarz - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\konsorcjumlekarz - Web Deploy.pubxml" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular-ui-router.js" />
     <Content Include="Scripts\angular-ui-router.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
+    <None Include="Properties\PublishProfiles\inzynieriainternetowa - Web Deploy.pubxml" />
     <None Include="Scripts\_references.js" />
     <Content Include="Scripts\_references_BACKUP_10292.js" />
     <Content Include="Scripts\_references_BASE_10292.js" />
     <Content Include="Scripts\_references_LOCAL_10292.js" />
     <Content Include="Scripts\_references_REMOTE_10292.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

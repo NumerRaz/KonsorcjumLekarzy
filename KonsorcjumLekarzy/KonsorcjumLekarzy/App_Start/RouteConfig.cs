@@ -31,11 +31,12 @@ namespace KonsorcjumLekarzy
                 defaults: new { controller = "Account", action = "Register" }
                 );
 
-            routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
-            );
+            //SEO
+            routes.MapRoute("Robots", "robots.txt", new { controller = "Seo", action = "Robots" });
+
+            //Error
+            routes.MapRoute(name: "Error404", url: "Error/Error404", defaults: new { controller = "Error", action = "Error404" });
+            
         }
     }
 }
