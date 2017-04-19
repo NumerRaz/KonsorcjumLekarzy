@@ -1939,6 +1939,10 @@ a.al-logo {
   float: right;
   min-width: 230px;
   margin-top: 10px; }
+  .user-profile .signout {
+    float: right;
+    padding-top: 10px;
+    font-size: 20px; }
 
 .al-user-profile {
   float: right;

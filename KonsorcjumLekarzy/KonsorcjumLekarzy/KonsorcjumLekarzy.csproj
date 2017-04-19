@@ -232,11 +232,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Angular\app.js" />
+    <Content Include="Angular\pages\dashboard\dashboard.component.js" />
     <Content Include="Angular\pages\dashboard\dashboard.html" />
     <Content Include="Angular\pages\dashboard\dashboard.module.js" />
     <Content Include="Angular\pages\dashboard\dashboardPieChart\dashboardPieChart.directive.js" />
     <Content Include="Angular\pages\dashboard\dashboardPieChart\dashboardPieChart.html" />
     <Content Include="Angular\pages\dashboard\dashboardPieChart\DashboardPieChartCtrl.js" />
+    <Content Include="Angular\pages\doctors\doctors.component.js" />
+    <Content Include="Angular\pages\doctors\doctors.html" />
+    <Content Include="Angular\pages\doctors\doctors.module.js" />
+    <Content Include="Angular\pages\doctors\selectPanel\GroupSelectpickerOptions.js" />
+    <Content Include="Angular\pages\doctors\selectPanel\select.html" />
+    <Content Include="Angular\pages\doctors\selectPanel\selectPickerPanel.component.js" />
     <Content Include="Angular\pages\pages.module.js" />
     <Content Include="Angular\theme\components\backTop\backTop.directive.js" />
     <Content Include="Angular\theme\components\backTop\backTop.html" />
@@ -264,7 +271,6 @@
     <Content Include="Angular\theme\components\msgCenter\MsgCenterCtrl.js" />
     <Content Include="Angular\theme\components\pageTop\pageTop.directive.js" />
     <Content Include="Angular\theme\components\pageTop\pageTop.html" />
-    <Content Include="Angular\theme\components\pageTop\userAuthorize.component.js" />
     <Content Include="Angular\theme\components\progressBarRound\progressBarRound.directive.js" />
     <Content Include="Angular\theme\components\progressBarRound\progressBarRound.html" />
     <Content Include="Angular\theme\components\toastrLibConfig.js" />
