@@ -9,17 +9,60 @@ namespace KonsorcjumLekarzy.Services
 {
     public class DoctorSerivce : IDoctorSerivces
     {
-        private readonly IDoctorRepository _doctorRepository;
+        private readonly IDoctorRepository doctorRepository;
 
+
+        //Filter Read Methods 
+        #region
         public DoctorSerivce(IDoctorRepository doctorRepository)
         {
-            _doctorRepository = doctorRepository;
+            this.doctorRepository = doctorRepository;
         }
 
-        public List<Model.Doctor> GetDcotrsByName(string name)
+
+        public List<Model.Doctor> GetDoctorsByName(string name)
         {
-            var model = _doctorRepository.Doctors().Where(x => x.FirstName.Equals(name)).ToList();
-            return model; 
+            var model = doctorRepository.Doctors()
+                .Where(x => x.FirstName.Equals(name)).ToList();
+        
+            return model;
         }
+
+
+        public List<Model.Doctor> GetDoctorsByEmail(string email)
+        {
+            var model = doctorRepository.Doctors()
+                .Where(x => x.Email.Equals(email)).ToList();
+
+            return model;
+        }
+
+
+        public List<Model.Doctor> GetDoctorsBySpecialization(string docType)
+        {
+            var model = doctorRepository.Doctors()
+                .Where(x => x.DoctorType.Equals(docType)).ToList();
+
+            return model;
+        }
+        #endregion
+
+        //Other CRUD Methods
+        #region
+        public void Create(Model.Doctor doctor)
+        {
+            doctorRepository.Insert(doctor);
+        }
+
+        public void Edit(Model.Doctor doctor)
+        {
+            doctorRepository.Update(doctor);
+        }
+
+        public void Delete(Model.Doctor doctor)
+        {
+            doctorRepository.Delete(doctor);
+        }
+        #endregion
     }
 }
