@@ -264,6 +264,7 @@
     <Content Include="Angular\theme\components\msgCenter\MsgCenterCtrl.js" />
     <Content Include="Angular\theme\components\pageTop\pageTop.directive.js" />
     <Content Include="Angular\theme\components\pageTop\pageTop.html" />
+    <Content Include="Angular\theme\components\pageTop\userAuthorize.component.js" />
     <Content Include="Angular\theme\components\progressBarRound\progressBarRound.directive.js" />
     <Content Include="Angular\theme\components\progressBarRound\progressBarRound.html" />
     <Content Include="Angular\theme\components\toastrLibConfig.js" />
@@ -296,13 +297,6 @@
     <Content Include="Angular\theme\theme.module.js" />
     <Content Include="Angular\theme\theme.run.js" />
     <Content Include="Angular\theme\theme.service.js" />
-    <Content Include="Angular_v1\app.js" />
-    <Content Include="Angular_v1\appComponent\appComponent.html" />
-    <Content Include="Angular_v1\appComponent\appComponent.js" />
-    <Content Include="Angular_v1\navbarComponent\navbarComponent.html" />
-    <Content Include="Angular_v1\navbarComponent\navbarComponent.js" />
-    <Content Include="Angular_v1\singlePanelComponent\singlePanelComponent.html" />
-    <Content Include="Angular_v1\singlePanelComponent\singlePanelComponent.js" />
     <Content Include="Content\assets\fonts\socicon.svg" />
     <Content Include="Content\assets\img\app\browsers\chrome.svg" />
     <Content Include="Content\assets\img\app\browsers\firefox.svg" />
@@ -546,8 +540,12 @@
     <Content Include="Content\plugins\styles\style.css" />
     <Content Include="Content\plugins\styles\textAngular.css" />
     <Content Include="Content\plugins\styles\xeditable.css" />
-    <Content Include="Content\sass\main.css" />
-    <Content Include="Content\sass\main.min.css" />
+    <Content Include="Content\sass\main.css">
+      <DependentUpon>main.scss</DependentUpon>
+    </Content>
+    <Content Include="Content\sass\main.min.css">
+      <DependentUpon>main.css</DependentUpon>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -679,6 +677,7 @@
     <Content Include="Service References\Application Insights\ConnectedService.json" />
     <Content Include="Views\Home\UserAuthorize.cshtml" />
     <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Views\Shared\_LayoutLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

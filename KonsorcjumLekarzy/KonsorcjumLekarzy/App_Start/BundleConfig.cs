@@ -1,55 +1,22 @@
-﻿using System.Web;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+using System.Web;
 using System.Web.Optimization;
 
 namespace KonsorcjumLekarzy
 {
     public class BundleConfig
     {
-        // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
             var angularBundleModules = new ScriptBundle("~/bundles/AngularModules")
-                .Include("~/Angular/app.js")
-                .Include("~/Angular/theme/theme.module.js")
-                .Include("~/Angular/theme/theme.config.js")
-                .Include("~/Angular/theme/theme.configProvider.js")
-                .Include("~/Angular/theme/theme.constants.js")
-                .Include("~/Angular/theme/theme.run.js")
-                .Include("~/Angular/theme/theme.service.js")
-                .Include("~/Angular/theme/components/components.module.js")
-                .Include("~/Angular/theme/inputs/inputs.module.js")
-                .IncludeDirectory("~/Angular/theme", "*.js", true)
-                .Include("~/Angular/pages/pages.module.js")
-                .Include("~/Angular/pages/dashboard/dashboard.module.js")
-                .IncludeDirectory("~/Angular/pages", "*.js", true);
+                .IncludeDirectory("~/Angular", "*.js", true);
 
-
-
+            angularBundleModules.Orderer = new AngularBundleOrderer();
             bundles.Add(angularBundleModules);
-
-            //        var angularBundlePagesApp = new ScriptBundle("~/bundles/AngularPagesApp")
-            //            .Include("~/Angular/pages/pages.module.js")
-            //            .Include("~/Angular/pages/dashboard/dashboard.module.js");
-            //        bundles.Add(angularBundlePagesApp);
-
-            //        var angularBundleThemeComponentApp = new ScriptBundle("~/bundles/AngularThemesComponentApp")
-            //            .Include("~/Angular/theme/components/component.module.js");
-            //        bundles.Add(angularBundleThemeComponentApp);
-
-            //        var angularBundleThemeComponent = new ScriptBundle("~/bundles/AngularThemesComponent")
-            //.IncludeDirectory("~/Angular/theme/components", "*.js", true);
-            //        bundles.Add(angularBundleThemeComponent);
-
-            //        var angularBundleTheme = new ScriptBundle("~/bundles/AngularThemes")
-            //            .IncludeDirectory("~/Angular/theme", "*.js", true);
-            //        bundles.Add(angularBundleTheme);
-
-
-
-            //        var angularBundleApp = new ScriptBundle("~/bundles/AngularApp")
-            //            .Include("~/Angular/app.js");
-            //        bundles.Add(angularBundleApp);
-
+            
             var scriptsBundle = new ScriptBundle("~/bundles/PluginScripts")
                 .Include("~/Content/plugins/scripts/jquery.js")
                 .Include("~/Content/plugins/scripts/jquery-ui.js")
@@ -119,4 +86,55 @@ namespace KonsorcjumLekarzy
             BundleTable.EnableOptimizations = false;
         }
     }
+
+    enum AngularFileTypes
+    {
+        Module,
+        Config,
+        Routes,
+        Init,
+        Constants,
+        Service,
+        Controller,
+        Directive,
+        Component,
+        Filter,
+        Spec,
+        Other
+    }
+
+    public class AngularBundleOrderer : IBundleOrderer
+    {
+        private Regex typeRegex = new Regex(@"(?:^|\.)([\w-]+)\.js$");
+        private Regex underscoreRegex = new Regex(@"^_");
+
+        public IEnumerable<BundleFile> OrderFiles(BundleContext context, IEnumerable<BundleFile> files)
+        {
+            var ordered = files
+                .GroupBy(GetFileType)
+                .Where(group => group.Key != (int)AngularFileTypes.Spec)
+                .OrderBy(group => group.Key)
+                .SelectMany(group => group);
+
+            return ordered;
+        }
+
+        private int GetFileType(BundleFile file)
+        {
+            if (underscoreRegex.IsMatch(file.VirtualFile.Name))
+            {
+                return -1;
+            }
+
+            AngularFileTypes result;
+            var parsedType = typeRegex.Match(file.VirtualFile.Name).Groups[1].Value;
+
+            if (!Enum.TryParse(parsedType, true, out result) || !Enum.IsDefined(typeof(AngularFileTypes), result))
+            {
+                result = AngularFileTypes.Other;
+            }
+
+            return (int)result;
+        }
+}
 }
