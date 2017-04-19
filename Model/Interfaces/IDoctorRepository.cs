@@ -10,5 +10,10 @@ namespace Model.Abstract
     public interface IDoctorRepository
     {
         IEnumerable<Doctor> Doctors();
+        Doctor GetById(object Id);
+        void Insert(Doctor doctor);
+        void Update(Doctor doctor);
+        void Delete(object doctor);
+        void Save();
     }
 }
