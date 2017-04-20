@@ -12,13 +12,21 @@ namespace KonsorcjumLekarzy.Services
         private readonly IDoctorRepository doctorRepository;
 
 
-        //Filter Read Methods 
-        #region
+
         public DoctorSerivce(IDoctorRepository doctorRepository)
         {
             this.doctorRepository = doctorRepository;
         }
 
+        //Filter Read Methods 
+        #region
+        public List<Model.Doctor> GetAllDoctors()
+        {
+            var model = doctorRepository.Doctors().ToList();
+
+            return model;
+
+        }
 
         public List<Model.Doctor> GetDoctorsByName(string name)
         {

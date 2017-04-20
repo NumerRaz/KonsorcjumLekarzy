@@ -50,6 +50,7 @@ namespace KonsorcjumLekarzy.App_Start
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
                 kernel.Bind<IDoctorSerivces>().To<DoctorSerivce>();
                 kernel.Bind<IDoctorRepository>().To<DoctorRepository>();
+             
 
                 RegisterServices(kernel);
                 return kernel;

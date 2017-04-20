@@ -245,6 +245,9 @@
     <Content Include="Angular\pages\doctors\selectPanel\select.html" />
     <Content Include="Angular\pages\doctors\selectPanel\selectPickerPanel.component.js" />
     <Content Include="Angular\pages\pages.module.js" />
+    <Content Include="Angular\pages\bookingVisit\visit.component.js" />
+    <Content Include="Angular\pages\bookingVisit\bookingvisit.html" />
+    <Content Include="Angular\pages\bookingVisit\visit.module.js" />
     <Content Include="Angular\theme\components\backTop\backTop.directive.js" />
     <Content Include="Angular\theme\components\backTop\backTop.html" />
     <Content Include="Angular\theme\components\backTop\lib\jquery.backTop.min.js" />

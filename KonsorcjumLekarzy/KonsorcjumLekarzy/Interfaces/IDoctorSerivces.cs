@@ -5,7 +5,8 @@ using System.Web;
 
 namespace KonsorcjumLekarzy.Interfaces
 {
-    public class IDoctorSerivces
+    public interface IDoctorSerivces
     {
+         List<Model.Doctor> GetAllDoctors();
     }
 }
