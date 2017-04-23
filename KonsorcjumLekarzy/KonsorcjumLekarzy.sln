@@ -1,14 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KonsorcjumLekarzy", "KonsorcjumLekarzy\KonsorcjumLekarzy.csproj", "{E9102515-5A42-49A6-ACBB-70B8B2355132}"
 	ProjectSection(ProjectDependencies) = postProject
 		{732443FE-0F2D-463C-A695-F05221F29527} = {732443FE-0F2D-463C-A695-F05221F29527}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "..\Model\Model.csproj", "{732443FE-0F2D-463C-A695-F05221F29527}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KonsorcjumLekarzy.Database", "..\Model\KonsorcjumLekarzy.Database.csproj", "{732443FE-0F2D-463C-A695-F05221F29527}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

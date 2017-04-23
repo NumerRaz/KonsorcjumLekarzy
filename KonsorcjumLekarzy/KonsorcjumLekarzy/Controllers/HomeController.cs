@@ -30,14 +30,6 @@ namespace KonsorcjumLekarzy.Controllers
         {
             return View();
         }
-
-        [Authorize]
-        public JsonResult ShowAllDoctors()
-        {
-            var jsonVariable = _doctorService.GetAllDoctors();
-            return Json(jsonVariable, JsonRequestBehavior.AllowGet);
-        }
-
-
+        
     }
 }

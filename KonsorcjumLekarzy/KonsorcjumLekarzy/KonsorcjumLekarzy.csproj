@@ -690,7 +690,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Repository\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -703,9 +702,9 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Model\Model.csproj">
+    <ProjectReference Include="..\..\Model\KonsorcjumLekarzy.Database.csproj">
       <Project>{732443fe-0f2d-463c-a695-f05221f29527}</Project>
-      <Name>Model</Name>
+      <Name>KonsorcjumLekarzy.Database</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

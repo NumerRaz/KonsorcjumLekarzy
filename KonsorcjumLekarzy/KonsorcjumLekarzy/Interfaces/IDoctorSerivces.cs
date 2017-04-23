@@ -7,6 +7,5 @@ namespace KonsorcjumLekarzy.Interfaces
 {
     public interface IDoctorSerivces
     {
-         List<Model.Doctor> GetAllDoctors();
     }
 }
