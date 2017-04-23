@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Model.Repository
 {
-    interface IDoctroRepository<T> 
+    interface IRepository<T> 
     {
         IEnumerable<T> Doctors();
         T GetById(T Id);

@@ -6,24 +6,24 @@ using System.Threading.Tasks;
 
 namespace Model.Repository
 {
-    class DoctorRepository : IDoctroRepository<DoctorExample>
+    class DoctorRepository : IRepository<Doctor>
     {
-        public void Delete(DoctorExample doctor)
+        public void Delete(Doctor doctor)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<DoctorExample> Doctors()
+        public IEnumerable<Doctor> Doctors()
         {
             throw new NotImplementedException();
         }
 
-        public DoctorExample GetById(DoctorExample Id)
+        public Doctor GetById(Doctor Id)
         {
             throw new NotImplementedException();
         }
 
-        public void Insert(DoctorExample doctor)
+        public void Insert(Doctor doctor)
         {
             throw new NotImplementedException();
         }
@@ -33,13 +33,10 @@ namespace Model.Repository
             throw new NotImplementedException();
         }
 
-        public void Update(DoctorExample doctor)
+        public void Update(Doctor doctor)
         {
             throw new NotImplementedException();
         }
     }
 
-    internal class DoctorExample
-    {
-    }
 }
