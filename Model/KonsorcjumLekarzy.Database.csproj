@@ -51,12 +51,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AspNetRole.cs">
+      <DependentUpon>KonsorcjumDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUser.cs">
+      <DependentUpon>KonsorcjumDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserClaim.cs">
+      <DependentUpon>KonsorcjumDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserLogin.cs">
+      <DependentUpon>KonsorcjumDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="C__MigrationHistory.cs">
+      <DependentUpon>KonsorcjumDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Doctor.cs">
+      <DependentUpon>KonsorcjumDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KonsorcjumDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KonsorcjumDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KonsorcjumDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KonsorcjumDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="KonsorcjumDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>KonsorcjumDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Specialization.cs">
+      <DependentUpon>KonsorcjumDB.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -71,6 +102,19 @@
       <DependentUpon>KonsorcjumDB.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="KonsorcjumDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>KonsorcjumDB.Context.cs</LastGenOutput>
+      <DependentUpon>KonsorcjumDB.edmx</DependentUpon>
+    </Content>
+    <Content Include="KonsorcjumDB.edmx.sql" />
+    <Content Include="KonsorcjumDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>KonsorcjumDB.cs</LastGenOutput>
+      <DependentUpon>KonsorcjumDB.edmx</DependentUpon>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

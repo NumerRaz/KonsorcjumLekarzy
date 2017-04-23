@@ -4,7 +4,20 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="f6da2afb3f57407ea2288fcfeeb799e0" Name="Diagram1" />
+      <Diagram DiagramId="f6da2afb3f57407ea2288fcfeeb799e0" Name="Diagram1" >
+        <EntityTypeShape EntityType="KonsorcjumDB.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="KonsorcjumDB.AspNetRole" Width="1.5" PointX="0.75" PointY="2.5" />
+        <EntityTypeShape EntityType="KonsorcjumDB.AspNetUserClaim" Width="1.875" PointX="5.875" PointY="3.625" />
+        <EntityTypeShape EntityType="KonsorcjumDB.AspNetUserLogin" Width="1.75" PointX="5.875" PointY="1" />
+        <EntityTypeShape EntityType="KonsorcjumDB.AspNetUser" Width="2" PointX="3" PointY="1.375" />
+        <AssociationConnector Association="KonsorcjumDB.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="KonsorcjumDB.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="KonsorcjumDB.AspNetUserRoles" />
+        <EntityTypeShape EntityType="KonsorcjumDB.Doctor" Width="1.5" PointX="8" PointY="1" />
+        <AssociationConnector Association="KonsorcjumDB.AspNetUserDoctor" />
+        <EntityTypeShape EntityType="KonsorcjumDB.Specialization" Width="1.875" PointX="10.5" PointY="1" />
+        <AssociationConnector Association="KonsorcjumDB.DoctorSpecialization" />
+      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>
