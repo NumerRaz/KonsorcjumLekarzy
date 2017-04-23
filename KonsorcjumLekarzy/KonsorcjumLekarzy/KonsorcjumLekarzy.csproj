@@ -702,9 +702,9 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Model\KonsorcjumLekarzy.Database.csproj">
-      <Project>{732443fe-0f2d-463c-a695-f05221f29527}</Project>
-      <Name>KonsorcjumLekarzy.Database</Name>
+    <ProjectReference Include="..\KonsorcjumLekarzy.DAL\KonsorcjumLekarzy.DAL.csproj">
+      <Project>{c76457c1-6902-4e4a-968b-8eebd0566339}</Project>
+      <Name>KonsorcjumLekarzy.DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KonsorcjumLekarzy", "Konsor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KonsorcjumLekarzy.Database", "..\Model\KonsorcjumLekarzy.Database.csproj", "{732443FE-0F2D-463C-A695-F05221F29527}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KonsorcjumLekarzy.DAL", "KonsorcjumLekarzy.DAL\KonsorcjumLekarzy.DAL.csproj", "{C76457C1-6902-4E4A-968B-8EEBD0566339}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +26,10 @@ Global
 		{732443FE-0F2D-463C-A695-F05221F29527}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{732443FE-0F2D-463C-A695-F05221F29527}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{732443FE-0F2D-463C-A695-F05221F29527}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C76457C1-6902-4E4A-968B-8EEBD0566339}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C76457C1-6902-4E4A-968B-8EEBD0566339}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C76457C1-6902-4E4A-968B-8EEBD0566339}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C76457C1-6902-4E4A-968B-8EEBD0566339}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
