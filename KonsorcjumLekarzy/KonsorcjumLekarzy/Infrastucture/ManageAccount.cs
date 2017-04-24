@@ -5,6 +5,7 @@ using System.Web;
 using KonsorcjumLekarzy.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using KonsorcjumLekarzy.Database.Model;
 
 namespace KonsorcjumLekarzy.Infrastucture
 {

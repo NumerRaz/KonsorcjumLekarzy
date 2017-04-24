@@ -1,0 +1,40 @@
+﻿@model IEnumerable<KonsorcjumLekarzy.Database.Model.Specialization>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Administration/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SpecializationName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SpecializationDescription)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SpecializationName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SpecializationDescription)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SpecializationId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SpecializationId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SpecializationId })
+        </td>
+    </tr>
+}
+
+</table>

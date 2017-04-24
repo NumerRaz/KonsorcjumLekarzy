@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using KonsorcjumLekarzy.Models;
+using KonsorcjumLekarzy.Database.Model;
 
 namespace KonsorcjumLekarzy.Controllers
 {

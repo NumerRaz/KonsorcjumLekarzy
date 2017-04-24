@@ -215,6 +215,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
+    <Compile Include="Areas\Administration\Controllers\DocotrsController.cs" />
+    <Compile Include="Areas\Administration\Controllers\SpecializationController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -223,12 +225,9 @@
     </Compile>
     <Compile Include="Infrastucture\ManageAccount.cs" />
     <Compile Include="Infrastucture\TypeRole.cs" />
-    <Compile Include="Interfaces\IDoctorSerivces.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\DoctorSerivce.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -561,6 +560,10 @@
     <Content Include="Global.asax" />
     <Content Include="Areas\Administration\Views\web.config" />
     <Content Include="Areas\Administration\Views\Shared\_LayoutLogin.cshtml" />
+    <Content Include="Areas\Administration\Views\Docotrs\Create.cshtml" />
+    <Content Include="Areas\Administration\Views\Specialization\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Specialization\Create.cshtml" />
+    <Content Include="Areas\Administration\Views\Docotrs\Index.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -693,8 +696,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Administration\Controllers\" />
     <Folder Include="Areas\Administration\Models\" />
+    <Folder Include="Interfaces\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -707,13 +711,9 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Model\KonsorcjumLekarzy.Database.csproj">
-      <Project>{732443fe-0f2d-463c-a695-f05221f29527}</Project>
+    <ProjectReference Include="..\KonsorcjumLekarzy.Database\KonsorcjumLekarzy.Database.csproj">
+      <Project>{662e32c7-0f74-42b8-a39c-e0d5127e570e}</Project>
       <Name>KonsorcjumLekarzy.Database</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\KonsorcjumLekarzy.DAL\KonsorcjumLekarzy.DAL.csproj">
-      <Project>{c76457c1-6902-4e4a-968b-8eebd0566339}</Project>
-      <Name>KonsorcjumLekarzy.DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

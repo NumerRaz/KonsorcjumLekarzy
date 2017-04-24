@@ -1,5 +1,6 @@
-using KonsorcjumLekarzy.Interfaces;
-using KonsorcjumLekarzy.Services;
+
+using KonsorcjumLekarzy.Database.Model;
+using KonsorcjumLekarzy.Database.Repository;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(KonsorcjumLekarzy.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(KonsorcjumLekarzy.App_Start.NinjectWebCommon), "Stop")]
@@ -47,8 +48,8 @@ namespace KonsorcjumLekarzy.App_Start
             {
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
-                kernel.Bind<IDoctorSerivces>().To<DoctorSerivce>();
-             
+                kernel.Bind<IRepository<Doctor>>().To<DoctorRepository>();
+                kernel.Bind<IRepository<Specialization>>().To<SpecializationRepository>();
 
                 RegisterServices(kernel);
                 return kernel;
