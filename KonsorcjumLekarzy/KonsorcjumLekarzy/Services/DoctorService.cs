@@ -7,7 +7,7 @@ using KonsorcjumLekarzy.Database.Model;
 
 namespace KonsorcjumLekarzy.Services
 {
-    public class DoctorService : IDoctorService
+    public class DoctorService : IGenericService<Doctor>
     {
         private readonly IRepository<Doctor> repository;
         
@@ -16,7 +16,7 @@ namespace KonsorcjumLekarzy.Services
             this.repository = repository;
         }
 
-        public IList<Doctor> DoctorsList()
+        public IList<Doctor> EntietiesList()
         {
             return repository.GetAll().ToList();
         }

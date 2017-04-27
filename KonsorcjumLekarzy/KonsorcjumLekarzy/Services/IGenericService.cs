@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using KonsorcjumLekarzy.Database.Model;
 
 namespace KonsorcjumLekarzy.Services
 {
-    public interface IDoctorService
+    public interface IGenericService<T>
     {
-        IList<Doctor> DoctorsList();
+        IList<T> EntietiesList();
     }
 }

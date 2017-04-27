@@ -52,6 +52,6 @@ namespace KonsorcjumLekarzy.Database.Repository
         public void Save()
         {
             dbContext.SaveChanges();
-        }     
+        }
     }
 }

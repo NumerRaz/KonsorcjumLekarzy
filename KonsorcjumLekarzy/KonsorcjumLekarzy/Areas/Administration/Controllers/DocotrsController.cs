@@ -11,16 +11,16 @@ namespace KonsorcjumLekarzy.Areas.Administration.Controllers
 {
     public class DocotrsController : Controller
     {
-        private readonly IDoctorService doctorService;
+        private readonly IGenericService<Doctor> doctorService;
 
-        public DocotrsController(IDoctorService doctorService)
+        public DocotrsController(IGenericService<Doctor> doctorService)
         {
             this.doctorService = doctorService;
         }
 
         public ActionResult Index()
         {
-            return View(doctorService.DoctorsList());
+            return View(doctorService.EntietiesList());
         }
 
         // GET: Administration/Docotrs/Details/5
