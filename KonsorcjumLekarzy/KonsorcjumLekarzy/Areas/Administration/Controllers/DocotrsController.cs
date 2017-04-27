@@ -5,29 +5,22 @@ using System.Web;
 using System.Web.Mvc;
 using KonsorcjumLekarzy.Database.Model;
 using KonsorcjumLekarzy.Database.Repository;
+using KonsorcjumLekarzy.Services;
 
 namespace KonsorcjumLekarzy.Areas.Administration.Controllers
 {
     public class DocotrsController : Controller
     {
-        private readonly IRepository<Doctor> _repositoryDoctor;
+        private readonly IDoctorService doctorService;
 
-        public DocotrsController(IRepository<Doctor> repositoryDoctor)
+        public DocotrsController(IDoctorService doctorService)
         {
-            _repositoryDoctor = repositoryDoctor;
+            this.doctorService = doctorService;
         }
 
-        // GET: Administration/Docotrs
         public ActionResult Index()
         {
-            var result = _repositoryDoctor.GetAll();
-            return View(result);
-        }
-
-        public JsonResult JsonIndex()
-        {
-            var result = _repositoryDoctor.GetAll();
-            return Json(result, JsonRequestBehavior.AllowGet);
+            return View(doctorService.DoctorsList());
         }
 
         // GET: Administration/Docotrs/Details/5
@@ -43,20 +36,7 @@ namespace KonsorcjumLekarzy.Areas.Administration.Controllers
             return View(vm);
         }
 
-        // POST: Administration/Docotrs/Create
-        [HttpPost]
-        public ActionResult Create(Doctor collection)
-        {
-            try
-            {
-                _repositoryDoctor.Insert(collection);
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+       
 
         // GET: Administration/Docotrs/Edit/5
         public ActionResult Edit(int id)

@@ -1,9 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KonsorcjumLekarzy", "KonsorcjumLekarzy\KonsorcjumLekarzy.csproj", "{E9102515-5A42-49A6-ACBB-70B8B2355132}"
+	ProjectSection(ProjectDependencies) = postProject
+		{662E32C7-0F74-42B8-A39C-E0D5127E570E} = {662E32C7-0F74-42B8-A39C-E0D5127E570E}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KonsorcjumLekarzy.Database", "KonsorcjumLekarzy.Database\KonsorcjumLekarzy.Database.csproj", "{662E32C7-0F74-42B8-A39C-E0D5127E570E}"
 EndProject

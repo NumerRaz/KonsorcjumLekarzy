@@ -2,7 +2,7 @@
 using KonsorcjumLekarzy.Models;
 using Microsoft.Owin;
 using Owin;
-using  KonsorcjumLekarzy.Database.Model;
+using KonsorcjumLekarzy.Database.Model;
 
 
 [assembly: OwinStartupAttribute(typeof(KonsorcjumLekarzy.Startup))]
