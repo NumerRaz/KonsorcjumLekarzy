@@ -1,15 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using KonsorcjumLekarzy.Models;
 using KonsorcjumLekarzy.Database.Model;
+using KonsorcjumLekarzy.Database.Repository;
+using KonsorcjumLekarzy.Infrastucture;
+using Microsoft.AspNet.Identity.EntityFramework;
+using WebGrease.Css.Extensions;
 
 namespace KonsorcjumLekarzy.Controllers
 {
@@ -21,9 +27,10 @@ namespace KonsorcjumLekarzy.Controllers
 
         public AccountController()
         {
+            
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -140,7 +147,20 @@ namespace KonsorcjumLekarzy.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+            var avaliableRole = new List<string>();
+            var contex = new ApplicationDbContext();
+            var roles = contex.Roles.ToList();
+
+            foreach (var role in roles)
+            {
+                avaliableRole.Add(role.Name.ToString());
+            }
+
+            var vm = new RegisterViewModel()
+            {
+                AccountType = avaliableRole
+            };
+            return View(vm);
         }
 
         //
@@ -150,12 +170,46 @@ namespace KonsorcjumLekarzy.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+            var dbDoctor = new DoctorRepository();
+            var dbPatient = new PatientRepository();
+            var dbSpecialization = new SpecializationRepository();
+
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
+                var specjalizationDefault = dbSpecialization.Get(1);
+
                 if (result.Succeeded)
                 {
+                    var roleType = model.SelectedAccountType;
+                    if (roleType.Equals(TypeRole.Doctor.ToString()))
+                    {
+                        dbDoctor.Insert(new Doctor()
+                        {
+                            FirstName = model.FirstName,
+                            LastName = model.LastName,
+                            UserId = user.Id,
+                            SpecializationId = specjalizationDefault.SpecializationId
+                        });
+                        UserManager.AddToRole(user.Id, TypeRole.Doctor.ToString());
+                    }
+                    else if (roleType.Equals(TypeRole.Patient.ToString()))
+                    {
+                        dbPatient.Insert(new Patient()
+                        {
+                            FirstName = model.FirstName,
+                            LastName = model.LastName,
+                            UserId = user.Id
+                        });
+                        UserManager.AddToRole(user.Id, TypeRole.Patient.ToString());
+                    }
+                    else
+                    {
+                        UserManager.AddToRole(user.Id, TypeRole.Admin.ToString());
+                    }
+
+
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
@@ -170,7 +224,7 @@ namespace KonsorcjumLekarzy.Controllers
             }
 
             // If we got this far, something failed, redisplay form
-            return View(model);
+            return RedirectToAction("Login","Account");
         }
 
         //

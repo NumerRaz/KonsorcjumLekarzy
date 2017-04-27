@@ -18,11 +18,10 @@ namespace KonsorcjumLekarzy.Database.Model
 
         [Required]
         public string LastName { get; set; }
+        
 
-        [Required]
         public string BirthDay { get; set; }
-
-        [Required]
+        
         [ForeignKey("Specialization")]
         public int SpecializationId { get; set; }
 
