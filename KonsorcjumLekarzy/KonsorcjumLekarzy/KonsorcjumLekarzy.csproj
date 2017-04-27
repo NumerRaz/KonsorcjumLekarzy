@@ -566,6 +566,7 @@
     <Content Include="Areas\Administration\Views\Specialization\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Specialization\Create.cshtml" />
     <Content Include="Areas\Administration\Views\Docotrs\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\_LoginPartial.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
