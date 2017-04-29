@@ -18,7 +18,30 @@ namespace KonsorcjumLekarzy.Services
 
         public IList<Doctor> EntietiesList()
         {
+           
             return repository.GetAll().ToList();
         }
+
+        public void CreateEntity(Doctor entity)
+        {
+            repository.Insert(entity);
+        }
+
+        public void UpdateEntity(Doctor entity)
+        {
+            repository.Update(entity);
+        }
+
+        public void DeleteEntity(Doctor entity)
+        {
+            repository.Delete(entity);
+        }
+
+        public Doctor ShowEntity(object ID)
+        {
+            Doctor doctor = repository.Get(ID);
+            return doctor;
+        }
+
     }
 }

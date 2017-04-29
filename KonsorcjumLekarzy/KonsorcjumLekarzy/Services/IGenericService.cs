@@ -8,6 +8,15 @@ namespace KonsorcjumLekarzy.Services
 {
     public interface IGenericService<T>
     {
+        //CRUD
         IList<T> EntietiesList();
+        void CreateEntity(T entity);
+        void UpdateEntity(T entity);
+        void DeleteEntity(T entity);
+
+        //Details
+        T ShowEntity(object entity);
+
+        
     }
 }

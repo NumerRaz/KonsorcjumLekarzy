@@ -26,11 +26,6 @@ namespace KonsorcjumLekarzy.Database.Repository
             return dbSet.ToList();
         }
 
-        public T Get(int id)
-        {
-            throw new NotImplementedException();
-        }
-
         public T Get(object ID)
         {
             return dbSet.Find(ID);

@@ -170,9 +170,9 @@ namespace KonsorcjumLekarzy.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
-            var dbDoctor = new DoctorRepository();
-            var dbPatient = new PatientRepository();
-            var dbSpecialization = new SpecializationRepository();
+            var dbDoctor = new GenericRepository<Doctor>();
+            var dbPatient = new GenericRepository<Patient>();
+            var dbSpecialization = new GenericRepository<Specialization>();
 
             if (ModelState.IsValid)
             {

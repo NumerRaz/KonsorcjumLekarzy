@@ -74,12 +74,12 @@
       <DependentUpon>201704271926126_FourthMigrations-UpdatePropRequired.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Repository\Model\Doctor.cs" />
-    <Compile Include="Repository\Model\IdentityModels.cs" />
-    <Compile Include="Repository\Model\ModelCustomContext.cs" />
-    <Compile Include="Repository\Model\Patient.cs" />
-    <Compile Include="Repository\Model\Specialization.cs" />
-    <Compile Include="Repository\Model\Visit.cs" />
+    <Compile Include="Model\Doctor.cs" />
+    <Compile Include="Model\IdentityModels.cs" />
+    <Compile Include="Model\ModelCustomContext.cs" />
+    <Compile Include="Model\Patient.cs" />
+    <Compile Include="Model\Specialization.cs" />
+    <Compile Include="Model\Visit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\GenericRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />
