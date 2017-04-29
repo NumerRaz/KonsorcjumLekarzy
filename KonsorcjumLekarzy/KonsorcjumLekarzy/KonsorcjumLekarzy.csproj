@@ -230,6 +230,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\DoctorService.cs" />
     <Compile Include="Services\IGenericService.cs" />
+    <Compile Include="Services\SpecialisationService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -557,6 +558,7 @@
     <Content Include="Content\sass\main.min.css">
       <DependentUpon>main.css</DependentUpon>
     </Content>
+    <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -567,6 +569,11 @@
     <Content Include="Areas\Administration\Views\Specialization\Create.cshtml" />
     <Content Include="Areas\Administration\Views\Docotrs\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Administration\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Administration\Views\Docotrs\Edit.cshtml" />
+    <Content Include="Areas\Administration\Views\Docotrs\Delete.cshtml" />
+    <Content Include="Areas\Administration\Views\Specialization\Edit.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>

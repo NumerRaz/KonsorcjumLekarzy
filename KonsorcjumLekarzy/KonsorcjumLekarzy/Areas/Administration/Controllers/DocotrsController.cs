@@ -78,26 +78,37 @@ namespace KonsorcjumLekarzy.Areas.Administration.Controllers
             return View(doctor);
         }
 
-        // GET: Administration/Docotrs/Delete/5
-        public ActionResult Delete(int id)
+        //TO DO:
+        //Delete nie działa... Problem jest najprawdopodobniej z kluczami.
+
+
+        /*
+        [HttpGet]
+        public ActionResult Delete(bool? saveChangesError = false, int ID = 0)
         {
-            return View();
+            if (saveChangesError.GetValueOrDefault())
+            {
+                ViewBag.ErrorMessage = "Delete failed. Try again, and if the problem persists see your system administrator.";
+            }
+            Doctor doctor = doctorService.ShowEntity(ID);
+            return View(doctor);
         }
 
-        // POST: Administration/Docotrs/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(Doctor doctor)
         {
             try
             {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
+                Doctor doctorToDelete = doctorService.ShowEntity(doctor.UserId);
+                doctorService.DeleteEntity(doctorToDelete);
             }
-            catch
+            catch (DataException)
             {
-                return View();
+                return RedirectToAction("Delete", new { doctor = doctor, saveChangesError = true });
             }
+            return RedirectToAction("Index");
         }
+        */
     }
 }

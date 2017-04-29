@@ -5,95 +5,77 @@ using System.Web;
 using System.Web.Mvc;
 using KonsorcjumLekarzy.Database.Model;
 using KonsorcjumLekarzy.Database.Repository;
+using KonsorcjumLekarzy.Services;
+using System.Data;
 
 namespace KonsorcjumLekarzy.Areas.Administration.Controllers
 {
     public class SpecializationController : Controller
     {
-        private readonly IRepository<Specialization> _repositorySpecialization;
+        private readonly IGenericService<Specialization> specializationService;
 
-        public SpecializationController(IRepository<Specialization> repositorySpecialization)
+        public SpecializationController(IGenericService<Specialization> specializationService)
         {
-            _repositorySpecialization = repositorySpecialization;
+            this.specializationService = specializationService;
         }
 
-        // GET: Administration/Specialization
+
+        public ActionResult Details(int ID)
+        {
+            return View(specializationService.ShowEntity(ID));
+        }
+
+
         public ActionResult Index()
         {
-            var result = _repositorySpecialization.GetAll();
-            return View(result);
+            return View(specializationService.EntietiesList());
         }
 
-        // GET: Administration/Specialization/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
 
-        // GET: Administration/Specialization/Create
+        [HttpGet]
         public ActionResult Create()
         {
-            var vm = new Specialization();
-            return View(vm);
-        }
-
-        // POST: Administration/Specialization/Create
-        [HttpPost]
-        public ActionResult Create(Specialization collection)
-        {
-            try
-            {
-                _repositorySpecialization.Insert(collection);
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Administration/Specialization/Edit/5
-        public ActionResult Edit(int id)
-        {
             return View();
         }
 
-        // POST: Administration/Specialization/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Create(Specialization doctorSpecialization)
+        {
+            if (ModelState.IsValid)
+            {
+                specializationService.CreateEntity(doctorSpecialization);
+                return RedirectToAction("Index");
+            }
+            else
+                return View(doctorSpecialization);
+        }
+
+
+        [HttpGet]
+        public ActionResult Edit(int ID)
+        {
+            return View(specializationService.ShowEntity(ID));
+        }
+
+
+        [HttpPost]
+        public ActionResult Edit(Specialization doctorSpecialization)
         {
             try
             {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    specializationService.UpdateEntity(doctorSpecialization);
+                    return RedirectToAction("Index");
+                }
+                else
+                    return View(doctorSpecialization);
             }
-            catch
+            catch (DataException)
             {
-                return View();
+                ModelState.AddModelError(string.Empty, "Unable to save changes. Try Again");
             }
-        }
-
-        // GET: Administration/Specialization/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Administration/Specialization/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return View(doctorSpecialization);
         }
     }
 }
