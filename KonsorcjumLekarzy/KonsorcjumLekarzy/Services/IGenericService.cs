@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KonsorcjumLekarzy.Database.Model;
 
 namespace KonsorcjumLekarzy.Services
 {
@@ -16,7 +17,5 @@ namespace KonsorcjumLekarzy.Services
 
         //Details
         T ShowEntity(object ID);
-
-        
     }
 }
