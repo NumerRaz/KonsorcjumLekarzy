@@ -33,9 +33,10 @@ namespace KonsorcjumLekarzy.Services
             repository.Update(entity);
         }
 
-        public void DeleteEntity(Specialization entity)
+        public void DeleteEntity(object ID)
         {
-            repository.Delete(entity);
+            Specialization specialization = ShowEntity(ID);
+            repository.Delete(specialization);
         }
 
         public Specialization ShowEntity(object ID)

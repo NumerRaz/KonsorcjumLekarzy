@@ -78,37 +78,26 @@ namespace KonsorcjumLekarzy.Areas.Administration.Controllers
             return View(doctor);
         }
 
-        //TO DO:
-        //Delete nie działa... Problem jest najprawdopodobniej z kluczami.
 
-
-        /*
         [HttpGet]
-        public ActionResult Delete(bool? saveChangesError = false, int ID = 0)
+        public ActionResult Delete(int ID)
         {
-            if (saveChangesError.GetValueOrDefault())
-            {
-                ViewBag.ErrorMessage = "Delete failed. Try again, and if the problem persists see your system administrator.";
-            }
             Doctor doctor = doctorService.ShowEntity(ID);
-            return View(doctor);
+            if (doctor == null)
+                return RedirectToAction("Index");
+            else
+                return View(doctor);
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(Doctor doctor)
+        public ActionResult Delete(int ID, string confirmButton)
         {
-            try
-            {
-                Doctor doctorToDelete = doctorService.ShowEntity(doctor.UserId);
-                doctorService.DeleteEntity(doctorToDelete);
-            }
-            catch (DataException)
-            {
-                return RedirectToAction("Delete", new { doctor = doctor, saveChangesError = true });
-            }
+            Doctor doctor = doctorService.ShowEntity(ID);
+            if (doctor == null)
+                return RedirectToAction("Index");
+
+            doctorService.DeleteEntity(ID);
             return RedirectToAction("Index");
         }
-        */
     }
 }

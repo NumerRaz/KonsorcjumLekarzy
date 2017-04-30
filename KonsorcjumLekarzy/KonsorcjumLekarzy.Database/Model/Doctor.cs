@@ -14,14 +14,17 @@ namespace KonsorcjumLekarzy.Database.Model
         public int DoctorId { get; set; }
 
         [Required]
+        [Display(Name = "Imię")]
         public string FirstName { get; set; }
 
         [Required]
+        [Display(Name = "Naziwsko")]
         public string LastName { get; set; }
         
-
+        [Display(Name = "Data urodzenia")]
         public string BirthDay { get; set; }
-        
+
+        [Display(Name = "Specjalizacja")]
         [ForeignKey("Specialization")]
         public int SpecializationId { get; set; }
 

@@ -12,10 +12,10 @@ namespace KonsorcjumLekarzy.Services
         IList<T> EntietiesList();
         void CreateEntity(T entity);
         void UpdateEntity(T entity);
-        void DeleteEntity(T entity);
+        void DeleteEntity(object ID);
 
         //Details
-        T ShowEntity(object entity);
+        T ShowEntity(object ID);
 
         
     }

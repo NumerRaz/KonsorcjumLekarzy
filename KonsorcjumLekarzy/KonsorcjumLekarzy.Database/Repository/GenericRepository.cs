@@ -45,8 +45,7 @@ namespace KonsorcjumLekarzy.Database.Repository
 
         public void Delete(T entity)
         {
-            T getObjByID = dbSet.Find(entity);
-            dbSet.Remove(getObjByID);
+            dbSet.Remove(entity);
             Save();
         }
         public void Save()

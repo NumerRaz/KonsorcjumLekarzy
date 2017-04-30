@@ -572,8 +572,9 @@
     <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Administration\Views\Docotrs\Edit.cshtml" />
-    <Content Include="Areas\Administration\Views\Docotrs\Delete.cshtml" />
     <Content Include="Areas\Administration\Views\Specialization\Edit.cshtml" />
+    <Content Include="Areas\Administration\Views\Docotrs\Delete.cshtml" />
+    <Content Include="Areas\Administration\Views\Docotrs\Details.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>

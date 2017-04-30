@@ -18,7 +18,7 @@ namespace KonsorcjumLekarzy.Services
 
         public IList<Doctor> EntietiesList()
         {
-           
+
             return repository.GetAll().ToList();
         }
 
@@ -32,9 +32,10 @@ namespace KonsorcjumLekarzy.Services
             repository.Update(entity);
         }
 
-        public void DeleteEntity(Doctor entity)
+        public void DeleteEntity(object ID)
         {
-            repository.Delete(entity);
+            Doctor doctor = repository.Get(ID);
+            repository.Delete(doctor);
         }
 
         public Doctor ShowEntity(object ID)
