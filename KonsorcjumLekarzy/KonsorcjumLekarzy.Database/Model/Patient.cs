@@ -14,11 +14,14 @@ namespace KonsorcjumLekarzy.Database.Model
         public int PatientId { get; set; }
 
         [Required]
+        [Display(Name = "Imię")]
         public string FirstName { get; set; }
 
         [Required]
+        [Display(Name = "Nazwisko")]
         public string LastName { get; set; }
         
+        [Display(Name = "Data urodzenia")]
         public string BirthDay { get; set; }
 
         [Required]

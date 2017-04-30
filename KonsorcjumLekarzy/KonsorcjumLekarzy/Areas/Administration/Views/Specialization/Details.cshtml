@@ -1,0 +1,35 @@
+﻿@model KonsorcjumLekarzy.Database.Model.Specialization
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Administration/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Specialization</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SpecializationName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SpecializationName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SpecializationDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SpecializationDescription)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SpecializationId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

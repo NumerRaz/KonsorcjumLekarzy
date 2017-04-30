@@ -216,6 +216,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Administration\AdministrationAreaRegistration.cs" />
     <Compile Include="Areas\Administration\Controllers\DocotrsController.cs" />
+    <Compile Include="Areas\Administration\Controllers\PatientController.cs" />
     <Compile Include="Areas\Administration\Controllers\SpecializationController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -230,6 +231,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\DoctorService.cs" />
     <Compile Include="Services\IGenericService.cs" />
+    <Compile Include="Services\PatientService.cs" />
     <Compile Include="Services\SpecialisationService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -565,16 +567,18 @@
     <Content Include="Areas\Administration\Views\web.config" />
     <Content Include="Areas\Administration\Views\Shared\_LayoutLogin.cshtml" />
     <Content Include="Areas\Administration\Views\Docotrs\Create.cshtml" />
-    <Content Include="Areas\Administration\Views\Specialization\Index.cshtml" />
-    <Content Include="Areas\Administration\Views\Specialization\Create.cshtml" />
     <Content Include="Areas\Administration\Views\Docotrs\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Administration\Views\Docotrs\Edit.cshtml" />
-    <Content Include="Areas\Administration\Views\Specialization\Edit.cshtml" />
     <Content Include="Areas\Administration\Views\Docotrs\Delete.cshtml" />
     <Content Include="Areas\Administration\Views\Docotrs\Details.cshtml" />
+    <Content Include="Areas\Administration\Views\Specialization\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Specialization\Details.cshtml" />
+    <Content Include="Areas\Administration\Views\Specialization\Create.cshtml" />
+    <Content Include="Areas\Administration\Views\Specialization\Edit.cshtml" />
+    <Content Include="Areas\Administration\Views\Specialization\Delete.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -708,6 +712,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Models\" />
+    <Folder Include="Areas\Administration\Views\Patient\" />
     <Folder Include="Interfaces\" />
   </ItemGroup>
   <ItemGroup>
