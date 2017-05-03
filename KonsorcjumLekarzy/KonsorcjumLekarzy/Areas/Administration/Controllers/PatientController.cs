@@ -12,9 +12,9 @@ namespace KonsorcjumLekarzy.Areas.Administration.Controllers
 {
     public class PatientController : Controller
     {
-        private readonly IGenericService<PatientService> patientService;
+        private readonly IGenericService<Patient> patientService;
 
-        public PatientController(IGenericService<PatientService> patientService)
+        public PatientController(IGenericService<Patient> patientService)
         {
             this.patientService = patientService;
         }

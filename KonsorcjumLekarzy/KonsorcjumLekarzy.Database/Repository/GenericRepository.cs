@@ -12,8 +12,8 @@ namespace KonsorcjumLekarzy.Database.Repository
     public class GenericRepository<T> : IRepository<T> where T : class
     {
 
-        private readonly ModelCustomContext dbContext;
-        private readonly DbSet<T> dbSet;
+        protected readonly ModelCustomContext dbContext;
+        protected readonly DbSet<T> dbSet;
 
         public GenericRepository()
         {

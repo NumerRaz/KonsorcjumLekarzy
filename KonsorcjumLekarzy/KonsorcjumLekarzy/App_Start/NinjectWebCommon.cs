@@ -53,10 +53,12 @@ namespace KonsorcjumLekarzy.App_Start
                 kernel.Bind<IRepository<Doctor>>().To<GenericRepository<Doctor>>();
                 kernel.Bind<IRepository<Specialization>>().To<GenericRepository<Specialization>>();
                 kernel.Bind<IRepository<Patient>>().To<GenericRepository<Patient>>();
+                kernel.Bind<IRepository<ApplicationUser>>().To<GenericRepository<ApplicationUser>>();
                 //Services
-                kernel.Bind<IGenericService<Doctor>>().To<DoctorService>();
+                kernel.Bind<IGenericService<Doctor>>().To<GenericService<Doctor>>();
                 kernel.Bind<IGenericService<Specialization>>().To<SpecialisationService>();
                 kernel.Bind<IGenericService<Patient>>().To<PatientService>();
+               
        
 
                 RegisterServices(kernel);
