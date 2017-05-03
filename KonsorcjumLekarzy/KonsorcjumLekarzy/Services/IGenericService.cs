@@ -9,5 +9,8 @@ namespace KonsorcjumLekarzy.Services
     public interface IGenericService<T>
     {
         IList<T> EntietiesList();
+        void AddEntity(T entity);
+        void UpdateEntity(T entity);
+        void DeleteEntity(T entity);
     }
 }

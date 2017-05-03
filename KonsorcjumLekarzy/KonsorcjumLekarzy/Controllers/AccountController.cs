@@ -14,6 +14,7 @@ using KonsorcjumLekarzy.Models;
 using KonsorcjumLekarzy.Database.Model;
 using KonsorcjumLekarzy.Database.Repository;
 using KonsorcjumLekarzy.Infrastucture;
+using KonsorcjumLekarzy.Services;
 using Microsoft.AspNet.Identity.EntityFramework;
 using WebGrease.Css.Extensions;
 
@@ -29,7 +30,7 @@ namespace KonsorcjumLekarzy.Controllers
         {
             
         }
-
+        
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
@@ -170,22 +171,25 @@ namespace KonsorcjumLekarzy.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
-            var dbDoctor = new DoctorRepository();
-            var dbPatient = new PatientRepository();
-            var dbSpecialization = new SpecializationRepository();
+            IRepository<Specialization> _specRepo = new GenericRepository<Specialization>();
+            IRepository<Doctor> _doctorRepo = new GenericRepository<Doctor>();
+            IRepository<Patient> _patientRepo = new GenericRepository<Patient>();
+            SpecializationService _dbSpecialization = new SpecializationService(_specRepo);
+            DoctorService _dbDoctor = new DoctorService(_doctorRepo);
+            PatientService _dbPatient = new PatientService(_patientRepo);
 
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
-                var specjalizationDefault = dbSpecialization.Get(1);
+                var specjalizationDefault = _dbSpecialization.GetEntiyById(1);
 
                 if (result.Succeeded)
                 {
                     var roleType = model.SelectedAccountType;
                     if (roleType.Equals(TypeRole.Doctor.ToString()))
                     {
-                        dbDoctor.Insert(new Doctor()
+                        _dbDoctor.AddEntity(new Doctor()
                         {
                             FirstName = model.FirstName,
                             LastName = model.LastName,
@@ -196,7 +200,7 @@ namespace KonsorcjumLekarzy.Controllers
                     }
                     else if (roleType.Equals(TypeRole.Patient.ToString()))
                     {
-                        dbPatient.Insert(new Patient()
+                        _dbPatient.AddEntity(new Patient()
                         {
                             FirstName = model.FirstName,
                             LastName = model.LastName,

@@ -2,36 +2,36 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using KonsorcjumLekarzy.Database.Repository;
 using KonsorcjumLekarzy.Database.Model;
+using KonsorcjumLekarzy.Database.Repository;
 
 namespace KonsorcjumLekarzy.Services
 {
-    public class DoctorService : IGenericService<Doctor>
+    public class PatientService : IGenericService<Patient>
     {
-        private readonly IRepository<Doctor> _repository;
-        
-        public DoctorService(IRepository<Doctor> repository)
+        private readonly IRepository<Patient> _repository;
+
+        public PatientService(IRepository<Patient> repository)
         {
-            this._repository = repository;
+            _repository = repository;
         }
 
-        public IList<Doctor> EntietiesList()
-        {
-            return _repository.GetAll().ToList();
-        }
-
-        public void AddEntity(Doctor entity)
-        {
-            this._repository.Insert(entity);
-        }
-
-        public void UpdateEntity(Doctor entity)
+        public IList<Patient> EntietiesList()
         {
             throw new NotImplementedException();
         }
 
-        public void DeleteEntity(Doctor entity)
+        public void AddEntity(Patient entity)
+        {
+            this._repository.Insert(entity);
+        }
+
+        public void UpdateEntity(Patient entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DeleteEntity(Patient entity)
         {
             throw new NotImplementedException();
         }
