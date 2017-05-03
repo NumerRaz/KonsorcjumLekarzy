@@ -9,36 +9,42 @@ namespace KonsorcjumLekarzy.Services
 {
     public class DoctorService : IGenericService<Doctor>
     {
-        private readonly IRepository<Doctor> _repository;
-        
+
+        private readonly IRepository<Doctor> repository;
+
         public DoctorService(IRepository<Doctor> repository)
         {
-            this._repository = repository;
+            this.repository = repository;
         }
+
 
         public IList<Doctor> EntietiesList()
         {
-            return _repository.GetAll().ToList();
+
+            return repository.GetAll().ToList();
         }
 
-        public void AddEntity(Doctor entity)
+        public void CreateEntity(Doctor entity)
         {
-            this._repository.Insert(entity);
+            repository.Insert(entity);
         }
 
         public void UpdateEntity(Doctor entity)
         {
-            throw new NotImplementedException();
+            repository.Update(entity);
         }
 
-        public void DeleteEntity(Doctor entity)
+        public void DeleteEntity(object ID)
         {
-            throw new NotImplementedException();
+            Doctor doctor = repository.Get(ID);
+            repository.Delete(doctor);
         }
 
-        public void GetEntiyById(int id)
+        public Doctor ShowEntity(object ID)
         {
-            throw new NotImplementedException();
+            Doctor doctor = repository.Get(ID);
+            return doctor;
         }
+
     }
 }

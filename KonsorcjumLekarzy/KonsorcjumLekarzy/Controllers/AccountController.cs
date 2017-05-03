@@ -171,25 +171,22 @@ namespace KonsorcjumLekarzy.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
-            IRepository<Specialization> _specRepo = new GenericRepository<Specialization>();
-            IRepository<Doctor> _doctorRepo = new GenericRepository<Doctor>();
-            IRepository<Patient> _patientRepo = new GenericRepository<Patient>();
-            SpecializationService _dbSpecialization = new SpecializationService(_specRepo);
-            DoctorService _dbDoctor = new DoctorService(_doctorRepo);
-            PatientService _dbPatient = new PatientService(_patientRepo);
+            var dbDoctor = new GenericRepository<Doctor>();
+            var dbPatient = new GenericRepository<Patient>();
+            var dbSpecialization = new GenericRepository<Specialization>();
 
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
-                var specjalizationDefault = _dbSpecialization.GetEntiyById(1);
+                var specjalizationDefault = dbSpecialization.Get(1);
 
                 if (result.Succeeded)
                 {
                     var roleType = model.SelectedAccountType;
                     if (roleType.Equals(TypeRole.Doctor.ToString()))
                     {
-                        _dbDoctor.AddEntity(new Doctor()
+                        dbDoctor.Insert(new Doctor()
                         {
                             FirstName = model.FirstName,
                             LastName = model.LastName,
@@ -200,7 +197,7 @@ namespace KonsorcjumLekarzy.Controllers
                     }
                     else if (roleType.Equals(TypeRole.Patient.ToString()))
                     {
-                        _dbPatient.AddEntity(new Patient()
+                        dbPatient.Insert(new Patient()
                         {
                             FirstName = model.FirstName,
                             LastName = model.LastName,

@@ -10,25 +10,25 @@ using System.Data;
 
 namespace KonsorcjumLekarzy.Areas.Administration.Controllers
 {
-    public class SpecializationController : Controller
+    public class PatientController : Controller
     {
-        private readonly IGenericService<Specialization> specializationService;
+        private readonly IGenericService<Patient> patientService;
 
-        public SpecializationController(IGenericService<Specialization> specializationService)
+        public PatientController(IGenericService<Patient> patientService)
         {
-            this.specializationService = specializationService;
+            this.patientService = patientService;
         }
 
 
         public ActionResult Details(int ID)
         {
-            return View(specializationService.ShowEntity(ID));
+            return View(patientService.ShowEntity(ID));
         }
 
 
         public ActionResult Index()
         {
-            return View(specializationService.EntietiesList());
+            return View(patientService.EntietiesList());
         }
 
 
@@ -39,63 +39,63 @@ namespace KonsorcjumLekarzy.Areas.Administration.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Specialization doctorSpecialization)
+        public ActionResult Create(Patient patient)
         {
             if (ModelState.IsValid)
             {
-                specializationService.CreateEntity(doctorSpecialization);
+                patientService.CreateEntity(patient);
                 return RedirectToAction("Index");
             }
             else
-                return View(doctorSpecialization);
+                return View(patient);
         }
 
 
         [HttpGet]
         public ActionResult Edit(int ID)
         {
-            return View(specializationService.ShowEntity(ID));
+            return View(patientService.ShowEntity(ID));
         }
 
 
         [HttpPost]
-        public ActionResult Edit(Specialization doctorSpecialization)
+        public ActionResult Edit(Patient patient)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    specializationService.UpdateEntity(doctorSpecialization);
+                    patientService.UpdateEntity(patient);
                     return RedirectToAction("Index");
                 }
                 else
-                    return View(doctorSpecialization);
+                    return View(patient);
             }
             catch (DataException)
             {
                 ModelState.AddModelError(string.Empty, "Unable to save changes. Try Again");
             }
-            return View(doctorSpecialization);
+            return View(patient);
         }
 
         [HttpGet]
         public ActionResult Delete(int ID)
         {
-            Specialization doctorSpecialization = specializationService.ShowEntity(ID);
-            if (doctorSpecialization == null)
+            Patient patient = patientService.ShowEntity(ID);
+            if (patient == null)
                 return RedirectToAction("Index");
             else
-                return View(doctorSpecialization);
+                return View(patient);
         }
 
         [HttpPost]
         public ActionResult Delete(int ID, string confirmButton)
         {
-            Specialization doctorSpecialization = specializationService.ShowEntity(ID);
-            if (doctorSpecialization == null)
+            Patient patient = patientService.ShowEntity(ID);
+            if (patient == null)
                 return RedirectToAction("Index");
 
-            specializationService.DeleteEntity(ID);
+            patientService.DeleteEntity(ID);
             return RedirectToAction("Index");
         }
     }

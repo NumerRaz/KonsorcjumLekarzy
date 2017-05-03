@@ -12,8 +12,8 @@ namespace KonsorcjumLekarzy.Database.Repository
     public class GenericRepository<T> : IRepository<T> where T : class
     {
 
-        private readonly ModelCustomContext dbContext;
-        private readonly DbSet<T> dbSet;
+        protected readonly ModelCustomContext dbContext;
+        protected readonly DbSet<T> dbSet;
 
         public GenericRepository()
         {
@@ -24,11 +24,6 @@ namespace KonsorcjumLekarzy.Database.Repository
         public IEnumerable<T> GetAll()
         {
             return dbSet.ToList();
-        }
-
-        public T Get(int id)
-        {
-            throw new NotImplementedException();
         }
 
         public T Get(object ID)
@@ -50,8 +45,7 @@ namespace KonsorcjumLekarzy.Database.Repository
 
         public void Delete(T entity)
         {
-            T getObjByID = dbSet.Find(entity);
-            dbSet.Remove(getObjByID);
+            dbSet.Remove(entity);
             Save();
         }
         public void Save()

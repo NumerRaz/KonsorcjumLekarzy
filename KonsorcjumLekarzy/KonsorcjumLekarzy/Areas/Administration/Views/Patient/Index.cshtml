@@ -1,4 +1,4 @@
-﻿@model IEnumerable<KonsorcjumLekarzy.Database.Model.Doctor>
+﻿@model IEnumerable<KonsorcjumLekarzy.Database.Model.Patient>
 
 @{
     ViewBag.Title = "Index";
@@ -22,7 +22,7 @@
             @Html.DisplayNameFor(model => model.BirthDay)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Specialization.SpecializationName)
+            @Html.DisplayNameFor(model => model.UserId)
         </th>
         <th></th>
     </tr>
@@ -39,12 +39,12 @@
             @Html.DisplayFor(modelItem => item.BirthDay)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Specialization.SpecializationName)
+            @Html.DisplayFor(modelItem => item.UserId)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.DoctorId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.DoctorId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.DoctorId })
+            @Html.ActionLink("Edit", "Edit", new { id=item.PatientId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PatientId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PatientId })
         </td>
     </tr>
 }

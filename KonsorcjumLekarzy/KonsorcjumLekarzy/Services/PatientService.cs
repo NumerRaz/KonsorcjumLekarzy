@@ -2,43 +2,50 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using KonsorcjumLekarzy.Database.Model;
 using KonsorcjumLekarzy.Database.Repository;
+using KonsorcjumLekarzy.Database.Model;
+
 
 namespace KonsorcjumLekarzy.Services
 {
-    public class PatientService : IGenericService<Patient>
-    {
-        private readonly IRepository<Patient> _repository;
-
-        public PatientService(IRepository<Patient> repository)
+        public class PatientService : IGenericService<Patient>
         {
-            _repository = repository;
-        }
 
-        public IList<Patient> EntietiesList()
-        {
-            throw new NotImplementedException();
-        }
+            private readonly IRepository<Patient> repository;
 
-        public void AddEntity(Patient entity)
-        {
-            this._repository.Insert(entity);
-        }
+            public PatientService(IRepository<Patient> repository)
+            {
+                this.repository = repository;
+            }
 
-        public void UpdateEntity(Patient entity)
-        {
-            throw new NotImplementedException();
-        }
 
-        public void DeleteEntity(Patient entity)
-        {
-            throw new NotImplementedException();
-        }
+            public IList<Patient> EntietiesList()
+            {
 
-        public void GetEntiyById(int id)
-        {
-            throw new NotImplementedException();
+                return repository.GetAll().ToList();
+            }
+
+            public void CreateEntity(Patient entity)
+            {
+                repository.Insert(entity);
+            }
+
+            public void UpdateEntity(Patient entity)
+            {
+                repository.Update(entity);
+            }
+
+            public void DeleteEntity(object ID)
+            {
+                Patient patient = repository.Get(ID);
+                repository.Delete(patient);
+            }
+
+            public Patient ShowEntity(object ID)
+            {
+                Patient patient = repository.Get(ID);
+                return patient;
+            }
+
         }
     }
-}
