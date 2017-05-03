@@ -233,6 +233,7 @@
     <Compile Include="Services\IGenericService.cs" />
     <Compile Include="Services\PatientService.cs" />
     <Compile Include="Services\SpecialisationService.cs" />
+    <Compile Include="Services\UserService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -718,7 +719,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Models\" />
     <Folder Include="Areas\Administration\Views\Shared\Patient\" />
-    <Folder Include="Areas\Administration\Views\User\" />
     <Folder Include="Interfaces\" />
   </ItemGroup>
   <ItemGroup>

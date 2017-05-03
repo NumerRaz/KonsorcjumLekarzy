@@ -13,10 +13,12 @@ namespace KonsorcjumLekarzy.Areas.Administration.Controllers
     public class PatientController : Controller
     {
         private readonly IGenericService<Patient> patientService;
+        private readonly IGenericService<ApplicationUser> userService;
 
-        public PatientController(IGenericService<Patient> patientService)
+        public PatientController(IGenericService<Patient> patientService, IGenericService<ApplicationUser> userService)
         {
             this.patientService = patientService;
+            this.userService = userService;
         }
 
 
@@ -96,6 +98,8 @@ namespace KonsorcjumLekarzy.Areas.Administration.Controllers
                 return RedirectToAction("Index");
 
             patientService.DeleteEntity(ID);
+            userService.DeleteEntity(patient.UserId);
+
             return RedirectToAction("Index");
         }
     }

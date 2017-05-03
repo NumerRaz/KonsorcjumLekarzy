@@ -6,14 +6,15 @@ using System.Text;
 using System.Threading.Tasks;
 using KonsorcjumLekarzy.Database.Repository;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+
 
 namespace KonsorcjumLekarzy.Database.Repository
 {
     public class GenericRepository<T> : IRepository<T> where T : class
     {
-
-        protected readonly ModelCustomContext dbContext;
-        protected readonly DbSet<T> dbSet;
+        private readonly ModelCustomContext dbContext;
+        private readonly DbSet<T> dbSet;
 
         public GenericRepository()
         {
@@ -50,7 +51,23 @@ namespace KonsorcjumLekarzy.Database.Repository
         }
         public void Save()
         {
-            dbContext.SaveChanges();
+
+            bool saveFailed;
+            do
+            {
+                saveFailed = false;
+
+                try
+                {
+                    dbContext.SaveChanges();
+                }
+                catch (DbUpdateConcurrencyException ex)
+                {
+                    saveFailed = true; 
+                    ex.Entries.Single().Reload();
+                }
+
+            } while (saveFailed);
         }
     }
 }

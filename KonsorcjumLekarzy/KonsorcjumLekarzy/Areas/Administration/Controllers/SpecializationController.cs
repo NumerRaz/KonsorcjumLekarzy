@@ -13,7 +13,7 @@ namespace KonsorcjumLekarzy.Areas.Administration.Controllers
     public class SpecializationController : Controller
     {
         private readonly IGenericService<Specialization> specializationService;
-
+  
         public SpecializationController(IGenericService<Specialization> specializationService)
         {
             this.specializationService = specializationService;
