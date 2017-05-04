@@ -19,6 +19,12 @@ namespace KonsorcjumLekarzy.Areas.Administration
                 "Administration/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
+
+            context.MapRoute(
+                "Administration_admin",
+                "Administration/",
+                new { action = "Index", controller=  "Admin", id = UrlParameter.Optional }
+            );
         }
     }
 }

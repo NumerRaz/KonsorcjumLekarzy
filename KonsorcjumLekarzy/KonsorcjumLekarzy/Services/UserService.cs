@@ -17,7 +17,7 @@ namespace KonsorcjumLekarzy.Services
 
         public void CreateEntity(ApplicationUser entity)
         {
-            throw new NotImplementedException();
+            this.repository.Insert(entity);
         }
 
         public void DeleteEntity(object ID)
@@ -28,17 +28,19 @@ namespace KonsorcjumLekarzy.Services
 
         public IList<ApplicationUser> EntietiesList()
         {
-            throw new NotImplementedException();
+            var users = this.repository.GetAll();
+            return users.ToList();
         }
 
         public ApplicationUser ShowEntity(object ID)
         {
-            throw new NotImplementedException();
+            var user = this.repository.Get(ID);
+            return user; 
         }
 
         public void UpdateEntity(ApplicationUser entity)
         {
-            throw new NotImplementedException();
+            this.repository.Update(entity);
         }
     }
 }
