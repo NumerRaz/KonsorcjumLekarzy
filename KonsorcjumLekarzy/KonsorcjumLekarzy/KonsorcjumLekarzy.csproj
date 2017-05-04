@@ -220,6 +220,7 @@
     <Compile Include="Areas\Administration\Controllers\PatientController.cs" />
     <Compile Include="Areas\Administration\Controllers\SpecializationController.cs" />
     <Compile Include="Areas\Administration\Controllers\UsersController.cs" />
+    <Compile Include="Areas\Administration\Models\AdminVm.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -569,7 +570,6 @@
     <Content Include="Global.asax" />
     <Content Include="Areas\Administration\Views\web.config" />
     <Content Include="Areas\Administration\Views\Shared\_LayoutLogin.cshtml" />
-    <Content Include="Areas\Administration\Views\Docotrs\Create.cshtml" />
     <Content Include="Areas\Administration\Views\Docotrs\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Areas\Administration\Views\_ViewStart.cshtml" />
@@ -585,7 +585,6 @@
     <Content Include="Areas\Administration\Views\Patient\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Patient\Details.cshtml" />
     <Content Include="Areas\Administration\Views\Patient\Edit.cshtml" />
-    <Content Include="Areas\Administration\Views\Patient\Create.cshtml" />
     <Content Include="Areas\Administration\Views\Patient\Delete.cshtml" />
     <Content Include="Areas\Administration\Views\Admin\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Users\Index.cshtml" />
@@ -593,6 +592,8 @@
     <Content Include="Areas\Administration\Views\Users\Edit.cshtml" />
     <Content Include="Areas\Administration\Views\Users\Delete.cshtml" />
     <Content Include="Areas\Administration\Views\Users\Create.cshtml" />
+    <Content Include="Areas\Administration\Views\Docotrs\Create.cshtml" />
+    <Content Include="Areas\Administration\Views\Patient\Create.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -725,7 +726,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Administration\Models\" />
     <Folder Include="Areas\Administration\Views\Shared\Patient\" />
     <Folder Include="Interfaces\" />
   </ItemGroup>

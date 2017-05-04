@@ -7,6 +7,7 @@ using KonsorcjumLekarzy.Database.Model;
 using KonsorcjumLekarzy.Database.Repository;
 using KonsorcjumLekarzy.Services;
 using System.Data;
+using KonsorcjumLekarzy.Areas.Administration.Models;
 
 namespace KonsorcjumLekarzy.Areas.Administration.Controllers
 {
@@ -37,7 +38,11 @@ namespace KonsorcjumLekarzy.Areas.Administration.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            return View();
+            var vm = new PatientCreateVM();
+            var users = this.userService.EntietiesList();
+
+            vm.ApplicationUsers = users.ToList();
+            return View(vm);
         }
 
         [HttpPost]
@@ -97,9 +102,9 @@ namespace KonsorcjumLekarzy.Areas.Administration.Controllers
             if (patient == null)
                 return RedirectToAction("Index");
 
-            patientService.DeleteEntity(ID);
             userService.DeleteEntity(patient.UserId);
-
+            patientService.DeleteEntity(ID);
+            
             return RedirectToAction("Index");
         }
     }
