@@ -1,0 +1,78 @@
+﻿@using KonsorcjumLekarzy.Database.Model
+@model KonsorcjumLekarzy.Areas.Administration.Models.VisitVM
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Administration/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<h2>Visit create</h2>
+
+@using (Html.BeginForm("Create", "Visit", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Patient</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Doctors</label>
+            <div class="col-sm-10">
+                @foreach (var item in Model.Doctors)
+                {
+                    <div>
+                        @Html.RadioButtonFor(x => x.Visit.DoctorId, item.DoctorId)
+                        <span> @item.FirstName @item.LastName</span>
+                    </div>
+                }
+                @Html.ValidationMessageFor(m => m.Visit.DoctorId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Patients</label>
+            <div class="col-sm-10">
+                @foreach (var item in Model.Patients)
+                {
+                    <div>
+                        @Html.RadioButtonFor(x => x.Visit.PatientId, item.PatientId)
+                        <span> @item.FirstName @item.LastName</span>
+                    </div>
+                }
+                @Html.ValidationMessageFor(m => m.Visit.PatientId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Visit.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Visit.StartDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Visit.StartDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Visit.Duration, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Visit.Duration, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Visit.Duration, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

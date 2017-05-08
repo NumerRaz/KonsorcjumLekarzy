@@ -19,19 +19,16 @@ namespace KonsorcjumLekarzy.Areas.Administration.Controllers
             this.specializationService = specializationService;
         }
 
-
         public ActionResult Details(int ID)
         {
             return View(specializationService.ShowEntity(ID));
         }
 
-
         public ActionResult Index()
         {
             return View(specializationService.EntietiesList());
         }
-
-
+        
         [HttpGet]
         public ActionResult Create()
         {
@@ -49,15 +46,13 @@ namespace KonsorcjumLekarzy.Areas.Administration.Controllers
             else
                 return View(doctorSpecialization);
         }
-
-
+        
         [HttpGet]
         public ActionResult Edit(int ID)
         {
             return View(specializationService.ShowEntity(ID));
         }
-
-
+        
         [HttpPost]
         public ActionResult Edit(Specialization doctorSpecialization)
         {

@@ -23,4 +23,11 @@ namespace KonsorcjumLekarzy.Areas.Administration.Models
         public List<ApplicationUser> ApplicationUsers { get; set; }
     }
 
+    public class VisitVM
+    {
+        public Visit Visit { get; set; }
+        public List<Doctor> Doctors { get; set; }
+        public List<Patient> Patients { get; set; } 
+    }
+
 }

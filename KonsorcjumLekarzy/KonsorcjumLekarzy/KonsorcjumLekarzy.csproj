@@ -220,6 +220,7 @@
     <Compile Include="Areas\Administration\Controllers\PatientController.cs" />
     <Compile Include="Areas\Administration\Controllers\SpecializationController.cs" />
     <Compile Include="Areas\Administration\Controllers\UsersController.cs" />
+    <Compile Include="Areas\Administration\Controllers\VisitController.cs" />
     <Compile Include="Areas\Administration\Models\AdminVm.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -237,6 +238,7 @@
     <Compile Include="Services\PatientService.cs" />
     <Compile Include="Services\SpecialisationService.cs" />
     <Compile Include="Services\UserService.cs" />
+    <Compile Include="Services\VisitService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -594,6 +596,11 @@
     <Content Include="Areas\Administration\Views\Users\Create.cshtml" />
     <Content Include="Areas\Administration\Views\Docotrs\Create.cshtml" />
     <Content Include="Areas\Administration\Views\Patient\Create.cshtml" />
+    <Content Include="Areas\Administration\Views\Visit\Details.cshtml" />
+    <Content Include="Areas\Administration\Views\Visit\Edit.cshtml" />
+    <Content Include="Areas\Administration\Views\Visit\Delete.cshtml" />
+    <Content Include="Areas\Administration\Views\Visit\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Visit\Create.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
