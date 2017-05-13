@@ -3,29 +3,34 @@
 
     var module = angular.module("BlurAdmin.pages.doctors");
 
-    function controller() {
+    controller.$inject = ['$http'];
+
+    function controller($http) {
         var vm = this;
+        var initData = {};
 
-        vm.doctorsList = [
-            {
-                name: "House 1",
-                description: "Exampe description",
-                specjalization: "Example 1"
-            },
-            {
-                name: "House 2",
-                description: "Exampe description",
-                specjalization: "Example 2"
-            },
-            {
-                name: "House 3",
-                description: "Exampe description",
-                specjalization: "Example 3"
+        var parseInitData = function () {
+            for (var doctor = 0; doctor < initData.DoctorDto.length; doctor++) {
+                vm.doctorsList.push(initData.DoctorDto[doctor]);
+                console.log("Add: " + initData.DoctorDto[doctor]);
             }
-        ];
+        };
 
-        vm.$onInit = function() {
-            vm.selectDoctors = "Example data";
+        var getInitData = function() {
+            $http.get('/home/GetInitialData')
+                .success(function (data, status, header, config) {
+                    console.log("Init data status: " + status);
+                    initData = data;
+                    parseInitData();
+                })
+                .error(function(data, status, header, config) {
+                    console.log("Init data error: " + status);
+                });
+        };
+
+        vm.$onInit = function () {
+            vm.doctorsList = [];
+            getInitData();
         }
     }
 

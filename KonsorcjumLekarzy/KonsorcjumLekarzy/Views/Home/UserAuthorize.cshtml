@@ -1,4 +1,12 @@
-﻿@{
+﻿@using Newtonsoft.Json
+@model KonsorcjumLekarzy.Models.DTOs.InitDTO
+
+<script>
+    var global_InitData = @Html.Raw(Json.Encode(Model.DoctorDto));
+    console.log("Global: " + global_InitData);
+</script>     
+
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 

@@ -11,26 +11,37 @@
    function controller() {
 
     var vm = this;
-    vm.disabled = undefined;
 
-    vm.standardItem = {};
-    vm.standardSelectItems = [
-      {label: 'Option 1', value: 1},
-      {label: 'Option 2', value: 2},
-      {label: 'Option 3', value: 3},
-      {label: 'Option 4', value: 4}
-    ];
+    var parseData = function() {
+        for (var doctor = 0; doctor < global_InitData.length; doctor++) {
+            vm.standardSelectItems.push({
+                label: global_InitData[doctor].FirstName + " " + global_InitData[doctor].LastName,
+                value: global_InitData[doctor].DoctorId
+            });
+
+            console.log(vm.standardSelectItems);
+        }
+    };
+
     
     vm.selectDoctors = function($item) {
         vm.doctors = $item.label;
     }
-  }
+
+    vm.$onInit = function () {
+        vm.disabled = undefined;
+        vm.standardItem = {};
+        vm.standardSelectItems = [];
+        parseData();
+        console.log("Select" + vm.doctors);
+    };
+   } 
 
   model.component("selectPickerPanel", {
       templateUrl: 'Angular/pages/doctors/selectPanel/select.html',
       controllerAs: "vm",
       bindings: {
-          doctors: '='
+          doctors: '<'
       },
       controller: controller
   });

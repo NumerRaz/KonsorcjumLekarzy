@@ -6,7 +6,7 @@
                append-to-body="true"
                search-enabled="false"
                on-select="vm.selectDoctor($item)">
-      <ui-select-match placeholder="doctors">
+      <ui-select-match placeholder="Doctors">
         <span> {{$select.selected.label}}</span>
       </ui-select-match>
       <ui-select-choices repeat="standardItem in vm.standardSelectItems | filter: $select.search">
