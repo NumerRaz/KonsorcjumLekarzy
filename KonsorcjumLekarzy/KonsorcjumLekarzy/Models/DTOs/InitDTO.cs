@@ -57,5 +57,6 @@ namespace KonsorcjumLekarzy.Models.DTOs
         public string LastName { get; set; }
         public string BirthDay { get; set; }
         public UserDTO UserDto { get; set; }
+        public SpecializationDTO SpecializationDto { get; set; }
     }
 }

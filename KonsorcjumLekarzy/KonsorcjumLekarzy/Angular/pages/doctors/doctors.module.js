@@ -1,7 +1,7 @@
 ﻿(function() {
     "use strict";
 
-    var module = angular.module("BlurAdmin.pages.doctors", ["ui.select"]);
+    var module = angular.module("BlurAdmin.pages.doctors", ["ui.select", "smart-table"]);
 
     module.config(routeConfig); 
 

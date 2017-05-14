@@ -1,10 +1,22 @@
 ﻿<div class="row">
-    <div class="col-md-6">
-        <select-picker-panel doctors="vm.doctorsList"></select-picker-panel>
-        
-        <div ng-repeat="doctor in vm.doctorsList">
-            <p>{{doctor}}</p>
+    
+    <div class="col-md-12">
+        <div ba-panel-class="with-scroll">
+            <tables-page doctors-data="vm.initData.data"></tables-page>
         </div>
-
     </div>
+
+    <div class="col-md-6">
+        <h2>Select doctor</h2>
+        <select-picker-panel select-doctors="vm.selectDoctors(item)"></select-picker-panel>
+    </div>
+
+    <div class="col-md-6">
+        <h2>Avaliable actions</h2>
+        <div class="well well-lg">
+            <p>{{ vm.initData.selectedDoctor.label }}</p>
+            <p>{{ vm.initData.selectedDoctor.value }}</p>
+        </div>
+    </div>
+    
 </div>

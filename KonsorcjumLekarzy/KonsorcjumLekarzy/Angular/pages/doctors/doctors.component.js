@@ -3,16 +3,23 @@
 
     var module = angular.module("BlurAdmin.pages.doctors");
 
-    controller.$inject = ['$http'];
+    controller.$inject = ["$http", "dataServices"];
 
-    function controller($http) {
+    function controller($http, dataServices) {
         var vm = this;
         var initData = {};
 
         var parseInitData = function () {
-            for (var doctor = 0; doctor < initData.DoctorDto.length; doctor++) {
-                vm.doctorsList.push(initData.DoctorDto[doctor]);
-                console.log("Add: " + initData.DoctorDto[doctor]);
+            vm.initData.data = global_InitData;
+            for (var doctor = 0; doctor < vm.initData.data.length; doctor++) {
+                vm.initData.doctorsList.push(vm.initData.data[doctor]);
+                console.log("Add: " + vm.initData.data[doctor]);
+            }
+        };
+
+        var getSelectedDoctor = function () {
+            if (vm.initData.selectedDoctor === "" || vm.initData.selectedDoctor === undefined) {
+                vm.initData.selectedDoctor = "No doctor has yet been selected";
             }
         };
 
@@ -28,9 +35,27 @@
                 });
         };
 
+        vm.selectDoctors = function (item) {
+            vm.initData.selectedDoctor.label = item.label;
+            vm.initData.selectedDoctor.value = item.value;
+        };
+
+        vm.getActiveDoctor = function () {
+            let active = {};
+            active = vm.initData.doctorsList.filter(function (element, index, array) {
+                return element.DoctorId === vm.initData.selectedDoctor.value;
+            });
+            return active;
+        };
+        
         vm.$onInit = function () {
-            vm.doctorsList = [];
+            vm.initData = {};
+            vm.initData.data = {}
+            vm.initData.doctorsList = [];
+            vm.initData.selectedDoctor = {};
+            parseInitData();
             getInitData();
+            getSelectedDoctor();
         }
     }
 

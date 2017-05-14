@@ -87,6 +87,16 @@ namespace KonsorcjumLekarzy.Controllers
                 FirstName = d.FirstName,
                 LastName = d.LastName,
                 BirthDay = d.BirthDay,
+                SpecializationDto = new SpecializationDTO()
+                {
+                    SpecializationId = _specializationService.EntietiesList().Where(spec => spec.SpecializationId == d.SpecializationId)
+                        .Select(sel => sel.SpecializationId).FirstOrDefault(),
+                    SpecializationName = _specializationService.EntietiesList().Where(spec => spec.SpecializationId == d.SpecializationId)
+                        .Select(sel => sel.SpecializationName).FirstOrDefault(),
+                    SpecializationDescription = _specializationService.EntietiesList().Where(spec => spec.SpecializationId == d.SpecializationId)
+                            .Select(sel => sel.SpecializationDescription).FirstOrDefault()
+
+                },
                 UserDto = new UserDTO()
                 {
                     id = _userService.EntietiesList().Where(u => u.Id == d.UserId).Select(s => s.Id).FirstOrDefault(),

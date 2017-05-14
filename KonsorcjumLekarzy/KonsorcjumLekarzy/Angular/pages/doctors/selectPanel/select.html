@@ -5,8 +5,8 @@
                ng-disabled="false"
                append-to-body="true"
                search-enabled="false"
-               on-select="vm.selectDoctor($item)">
-      <ui-select-match placeholder="Doctors">
+               on-select="vm.selectDoctors({ item: $item })">
+      <ui-select-match placeholder="doctors">
         <span> {{$select.selected.label}}</span>
       </ui-select-match>
       <ui-select-choices repeat="standardItem in vm.standardSelectItems | filter: $select.search">
