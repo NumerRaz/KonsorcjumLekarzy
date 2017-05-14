@@ -11,17 +11,20 @@
     function controller() {
 
         var vm = this;
+
         var parseData = function() {
-            for (let doctor = 0; doctor < global_InitData.length; doctor++) {
+            vm.doctors = global_InitData.Doctors;
+            for (let doctor = 0; doctor < vm.doctors.length; doctor++) {
                 vm.standardSelectItems.push({
-                    label: global_InitData[doctor].FirstName + " " + global_InitData[doctor].LastName,
-                    value: global_InitData[doctor].DoctorId
+                    label: vm.doctors[doctor].FirstName + " " + vm.doctors[doctor].LastName,
+                    value: vm.doctors[doctor].DoctorId
                 });
                 console.log(vm.standardSelectItems);
             }
         };
 
-        vm.$onInit = function() {
+        vm.$onInit = function () {
+            vm.doctors = [];
             vm.disabled = undefined;
             vm.standardItem = {};
             vm.standardSelectItems = [];

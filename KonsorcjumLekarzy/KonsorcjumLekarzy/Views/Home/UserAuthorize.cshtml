@@ -2,7 +2,12 @@
 @model KonsorcjumLekarzy.Models.DTOs.InitDTO
 
 <script>
-    var global_InitData = @Html.Raw(Json.Encode(Model.DoctorDto));
+    var global_InitData = {};
+    global_InitData.Doctors = @Html.Raw(Json.Encode(Model.DoctorDto));
+    global_InitData.User = @Html.Raw(Json.Encode(Model.UserDto));
+    global_InitData.Specialization = @Html.Raw(Json.Encode(Model.SpecializationDto));
+    global_InitData.Patients = @Html.Raw(Json.Encode(Model.PatientDto));
+    global_InitData.Visits = @Html.Raw(Json.Encode(Model.VisitDto));
     console.log("Global: " + global_InitData);
 </script>     
 

@@ -1,8 +1,9 @@
 <div class="page-top clearfix" scroll-position="scrolled" max-height="50" ng-class="{'scrolled': scrolled}">
-  <a href="#/dashboard" class="al-logo clearfix"><span>Konsorcjum </span>lekarzy</a>
-  <a href class="collapse-menu-link ion-navicon" ba-sidebar-toggle-menu></a>
+    <a href="#/dashboard" class="al-logo clearfix"><span>Konsorcjum </span>lekarzy</a>
+    <a href class="collapse-menu-link ion-navicon" ba-sidebar-toggle-menu></a>
 
-  <div class="user-profile clearfix">
-      <a href="/Account/LogOff" class="signout"><i class="fa fa-power-off"></i>Sign out</a>
-  </div>
+    <div class="user-profile clearfix">
+        <span>{{vm.user}}</span>
+        <a href="/Account/LogOff" class="signout"><i class="fa fa-power-off"></i>Sign out</a>
+    </div>
 </div>

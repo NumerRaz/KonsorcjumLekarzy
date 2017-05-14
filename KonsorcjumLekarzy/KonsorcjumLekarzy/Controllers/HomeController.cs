@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using KonsorcjumLekarzy.Database.Model;
 using KonsorcjumLekarzy.Models.DTOs;
 using KonsorcjumLekarzy.Services;
@@ -81,6 +82,33 @@ namespace KonsorcjumLekarzy.Controllers
         private InitDTO GetInitData()
         {
             var initDto = new InitDTO();
+            var activeUser = User.Identity;
+
+            var specializationDto = _specializationService.EntietiesList().Select(spec => new SpecializationDTO()
+            {
+                SpecializationDescription = spec.SpecializationDescription,
+                SpecializationId = spec.SpecializationId,
+                SpecializationName = spec.SpecializationName
+            });
+
+            var visitDto = _visitService.EntietiesList().Select(vi => new VisitDTO()
+            {
+                VisitID = vi.VisitID,
+                Confirmation = vi.Confirmation,
+                Duration = vi.Duration,
+                StartDate = vi.StartDate,
+                PatientId = vi.PatientId,
+                DoctorId = vi.DoctorId
+            });
+
+            var userDto = _userService.EntietiesList().Where(u=>u.Id.Equals(activeUser.GetUserId()))
+                .Select(u => new UserDTO()
+                {
+                    id = u.Id,
+                    RoleName = Roles.GetRolesForUser(activeUser.Name).FirstOrDefault(),
+                    UserName = u.UserName
+                }).ToList();
+
             var doctorsDto = _doctorService.EntietiesList().Select(d => new DoctorDTO()
             {
                 DoctorId = d.DoctorId,
@@ -119,7 +147,10 @@ namespace KonsorcjumLekarzy.Controllers
 
             initDto.DoctorDto = doctorsDto;
             initDto.PatientDto = patientsDto;
-            
+            initDto.UserDto = userDto;
+            initDto.SpecializationDto = specializationDto.ToList();
+            initDto.VisitDto = visitDto.ToList();
+
             return initDto;
         }
 

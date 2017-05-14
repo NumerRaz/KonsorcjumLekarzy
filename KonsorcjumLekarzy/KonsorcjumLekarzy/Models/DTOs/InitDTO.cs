@@ -43,8 +43,8 @@ namespace KonsorcjumLekarzy.Models.DTOs
     public class VisitDTO
     {
         public int VisitID { get; set; }
-        public DoctorDTO DoctorDto { get; set; }
-        public PatientDTO PatientDto { get; set; }
+        public int DoctorId { get; set; }
+        public int PatientId { get; set; }
         public DateTime StartDate { get; set; }
         public int Duration { get; set; }
         public bool Confirmation { get; set; }

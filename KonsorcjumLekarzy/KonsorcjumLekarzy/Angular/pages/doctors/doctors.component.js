@@ -7,13 +7,12 @@
 
     function controller($http, dataServices) {
         var vm = this;
-        var initData = {};
 
         var parseInitData = function () {
-            vm.initData.data = global_InitData;
+            vm.initData.data = global_InitData.Doctors;
             for (var doctor = 0; doctor < vm.initData.data.length; doctor++) {
                 vm.initData.doctorsList.push(vm.initData.data[doctor]);
-                console.log("Add: " + vm.initData.data[doctor]);
+                console.log("Add: " + vm.initData.data[doctor].FirstName);
             }
         };
 
@@ -27,8 +26,6 @@
             $http.get('/home/GetInitialData')
                 .success(function (data, status, header, config) {
                     console.log("Init data status: " + status);
-                    initData = data;
-                    parseInitData();
                 })
                 .error(function(data, status, header, config) {
                     console.log("Init data error: " + status);
