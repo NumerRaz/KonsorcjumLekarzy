@@ -1,5 +1,4 @@
 ﻿<div class="row">
-    
     <div class="col-md-12">
         <div ba-panel-class="with-scroll">
             <tables-page doctors-data="vm.initData.data"></tables-page>
@@ -9,14 +8,19 @@
     <div class="col-md-6">
         <h2>Select doctor</h2>
         <select-picker-panel select-doctors="vm.selectDoctors(item)"></select-picker-panel>
-    </div>
 
-    <div class="col-md-6">
-        <h2>Avaliable actions</h2>
-        <div class="well well-lg">
-            <p>{{ vm.initData.selectedDoctor.label }}</p>
-            <p>{{ vm.initData.selectedDoctor.value }}</p>
+        <div class="col-md-6">
+            <div class="row">
+                <button ng-click="vm.bookingVisit()" class="btn  btn-booking-visit">Booking visit</button>
+            </div>
+            <div class="row">
+                <button ng-click="vm.sendMessage()" class="btn btn-email">Send email</button>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h2 class="text-danger" ng-show="vm.displayErrorMessages">
+                {{vm.errorMessagesAvaliableActions}}
+            </h2>
         </div>
     </div>
-    
 </div>

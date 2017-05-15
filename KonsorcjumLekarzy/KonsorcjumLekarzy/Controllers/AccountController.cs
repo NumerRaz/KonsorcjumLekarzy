@@ -179,7 +179,7 @@ namespace KonsorcjumLekarzy.Controllers
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
-                var specjalizationDefault = dbSpecialization.Get(1);
+                var specjalizationDefault = dbSpecialization.GetAll().FirstOrDefault();
 
                 if (result.Succeeded)
                 {

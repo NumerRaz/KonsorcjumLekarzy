@@ -1,4 +1,32 @@
-﻿<p>dupa</p>
+﻿<div class="row" style="color: white; text-align: center;">
+    <div class="col-md-4">
+        <div class="panel-blur">
+            <div class="panel-heading">My visit</div>
+            <div class="panel-body">
+                <div class="row" ng-repeat="visit in vm.initData.allVisits">
+                    <div class="panel-primary">
+                        <div class="panel-heading">{{visit.startDate}}</div>
+                        <div class="panel-body">{{visit.confirmation}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel-blur">
+            <div class="panel-heading">Confirmed visits</div>
+            <div class="panel-body"></div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel-blur">
+            <div class="panel-heading">Next visit</div>
+            <div class="panel-body"></div>
+        </div>
+    </div>
+</div>
 
 
-<h1>{{vm.dupa}}</h1>
+<div class="well well-lg">
+    {{ vm.initData.data.Visits }}
+</div>

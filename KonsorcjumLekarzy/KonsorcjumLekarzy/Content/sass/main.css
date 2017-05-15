@@ -421,6 +421,54 @@ button.btn.btn-danger {
   button.btn.btn-danger:active, button.btn.btn-danger:target {
     background-color: #c54949; }
 
+button.btn.btn-booking-visit {
+  background: #e85656;
+  border-color: #e85656;
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+  margin-top: 15px;
+  margin-left: 15px;
+  color: white; }
+  button.btn.btn-booking-visit.disabled, button.btn.btn-booking-visit[disabled], fieldset[disabled] button.btn.btn-booking-visit, button.btn.btn-booking-visit.disabled:hover, button.btn.btn-booking-visit[disabled]:hover,
+  fieldset[disabled] button.btn.btn-booking-visit:hover, button.btn.btn-booking-visit.disabled:focus, button.btn.btn-booking-visit[disabled]:focus, fieldset[disabled] button.btn.btn-booking-visit:focus, button.btn.btn-booking-visit.disabled.focus, button.btn.btn-booking-visit[disabled].focus, fieldset[disabled] button.btn.btn-booking-visit.focus, button.btn.btn-booking-visit.disabled:active, button.btn.btn-booking-visit[disabled]:active, fieldset[disabled] button.btn.btn-booking-visit:active, button.btn.btn-booking-visit.disabled.active, button.btn.btn-booking-visit[disabled].active,
+  fieldset[disabled] button.btn.btn-booking-visit.active {
+    background: #e85656;
+    border-color: #f46262; }
+    button.btn.btn-booking-visit.disabled:hover, button.btn.btn-booking-visit[disabled]:hover, fieldset[disabled] button.btn.btn-booking-visit:hover, button.btn.btn-booking-visit.disabled:hover:hover, button.btn.btn-booking-visit[disabled]:hover:hover,
+    fieldset[disabled] button.btn.btn-booking-visit:hover:hover, button.btn.btn-booking-visit.disabled:focus:hover, button.btn.btn-booking-visit[disabled]:focus:hover, fieldset[disabled] button.btn.btn-booking-visit:focus:hover, button.btn.btn-booking-visit.disabled.focus:hover, button.btn.btn-booking-visit[disabled].focus:hover, fieldset[disabled] button.btn.btn-booking-visit.focus:hover, button.btn.btn-booking-visit.disabled:active:hover, button.btn.btn-booking-visit[disabled]:active:hover, fieldset[disabled] button.btn.btn-booking-visit:active:hover, button.btn.btn-booking-visit.disabled.active:hover, button.btn.btn-booking-visit[disabled].active:hover,
+    fieldset[disabled] button.btn.btn-booking-visit.active:hover {
+      transform: none; }
+  button.btn.btn-booking-visit:hover, button.btn.btn-booking-visit:focus, button.btn.btn-booking-visit.focus, button.btn.btn-booking-visit:active, button.btn.btn-booking-visit.active {
+    background: #e85656;
+    border-color: #d03e3e; }
+  button.btn.btn-booking-visit:active, button.btn.btn-booking-visit:target {
+    background-color: #c54949; }
+
+button.btn.btn-email {
+  background: #209e91;
+  border-color: #209e91;
+  color: white;
+  margin-top: 15px;
+  margin-left: 15px;
+  width: 200px;
+  height: 50px;
+  font-size: 20px; }
+  button.btn.btn-email.disabled, button.btn.btn-email[disabled], fieldset[disabled] button.btn.btn-email, button.btn.btn-email.disabled:hover, button.btn.btn-email[disabled]:hover,
+  fieldset[disabled] button.btn.btn-email:hover, button.btn.btn-email.disabled:focus, button.btn.btn-email[disabled]:focus, fieldset[disabled] button.btn.btn-email:focus, button.btn.btn-email.disabled.focus, button.btn.btn-email[disabled].focus, fieldset[disabled] button.btn.btn-email.focus, button.btn.btn-email.disabled:active, button.btn.btn-email[disabled]:active, fieldset[disabled] button.btn.btn-email:active, button.btn.btn-email.disabled.active, button.btn.btn-email[disabled].active,
+  fieldset[disabled] button.btn.btn-email.active {
+    background: #209e91;
+    border-color: #2caa9d; }
+    button.btn.btn-email.disabled:hover, button.btn.btn-email[disabled]:hover, fieldset[disabled] button.btn.btn-email:hover, button.btn.btn-email.disabled:hover:hover, button.btn.btn-email[disabled]:hover:hover,
+    fieldset[disabled] button.btn.btn-email:hover:hover, button.btn.btn-email.disabled:focus:hover, button.btn.btn-email[disabled]:focus:hover, fieldset[disabled] button.btn.btn-email:focus:hover, button.btn.btn-email.disabled.focus:hover, button.btn.btn-email[disabled].focus:hover, fieldset[disabled] button.btn.btn-email.focus:hover, button.btn.btn-email.disabled:active:hover, button.btn.btn-email[disabled]:active:hover, fieldset[disabled] button.btn.btn-email:active:hover, button.btn.btn-email.disabled.active:hover, button.btn.btn-email[disabled].active:hover,
+    fieldset[disabled] button.btn.btn-email.active:hover {
+      transform: none; }
+  button.btn.btn-email:hover, button.btn.btn-email:focus, button.btn.btn-email.focus, button.btn.btn-email:active, button.btn.btn-email.active {
+    background: #209e91;
+    border-color: #088679; }
+  button.btn.btn-email:active, button.btn.btn-email:target {
+    background-color: #1b867b; }
+
 button.btn.btn-inverse {
   background: #949494;
   border-color: #949494;
@@ -1937,11 +1985,12 @@ a.al-logo {
 
 .user-profile {
   float: right;
-  min-width: 350px;
+  padding-top: 12px;
+  font-size: 21px;
+  min-width: 310px;
   margin-top: 10px; }
   .user-profile .signout {
     float: right;
-    padding-top: 10px;
     font-size: 20px; }
 
 .al-user-profile {
@@ -2548,6 +2597,54 @@ button.btn.btn-danger {
     border-color: #d03e3e; }
   button.btn.btn-danger:active, button.btn.btn-danger:target {
     background-color: #c54949; }
+
+button.btn.btn-booking-visit {
+  background: #e85656;
+  border-color: #e85656;
+  width: 200px;
+  height: 50px;
+  font-size: 20px;
+  margin-top: 15px;
+  margin-left: 15px;
+  color: white; }
+  button.btn.btn-booking-visit.disabled, button.btn.btn-booking-visit[disabled], fieldset[disabled] button.btn.btn-booking-visit, button.btn.btn-booking-visit.disabled:hover, button.btn.btn-booking-visit[disabled]:hover,
+  fieldset[disabled] button.btn.btn-booking-visit:hover, button.btn.btn-booking-visit.disabled:focus, button.btn.btn-booking-visit[disabled]:focus, fieldset[disabled] button.btn.btn-booking-visit:focus, button.btn.btn-booking-visit.disabled.focus, button.btn.btn-booking-visit[disabled].focus, fieldset[disabled] button.btn.btn-booking-visit.focus, button.btn.btn-booking-visit.disabled:active, button.btn.btn-booking-visit[disabled]:active, fieldset[disabled] button.btn.btn-booking-visit:active, button.btn.btn-booking-visit.disabled.active, button.btn.btn-booking-visit[disabled].active,
+  fieldset[disabled] button.btn.btn-booking-visit.active {
+    background: #e85656;
+    border-color: #f46262; }
+    button.btn.btn-booking-visit.disabled:hover, button.btn.btn-booking-visit[disabled]:hover, fieldset[disabled] button.btn.btn-booking-visit:hover, button.btn.btn-booking-visit.disabled:hover:hover, button.btn.btn-booking-visit[disabled]:hover:hover,
+    fieldset[disabled] button.btn.btn-booking-visit:hover:hover, button.btn.btn-booking-visit.disabled:focus:hover, button.btn.btn-booking-visit[disabled]:focus:hover, fieldset[disabled] button.btn.btn-booking-visit:focus:hover, button.btn.btn-booking-visit.disabled.focus:hover, button.btn.btn-booking-visit[disabled].focus:hover, fieldset[disabled] button.btn.btn-booking-visit.focus:hover, button.btn.btn-booking-visit.disabled:active:hover, button.btn.btn-booking-visit[disabled]:active:hover, fieldset[disabled] button.btn.btn-booking-visit:active:hover, button.btn.btn-booking-visit.disabled.active:hover, button.btn.btn-booking-visit[disabled].active:hover,
+    fieldset[disabled] button.btn.btn-booking-visit.active:hover {
+      transform: none; }
+  button.btn.btn-booking-visit:hover, button.btn.btn-booking-visit:focus, button.btn.btn-booking-visit.focus, button.btn.btn-booking-visit:active, button.btn.btn-booking-visit.active {
+    background: #e85656;
+    border-color: #d03e3e; }
+  button.btn.btn-booking-visit:active, button.btn.btn-booking-visit:target {
+    background-color: #c54949; }
+
+button.btn.btn-email {
+  background: #209e91;
+  border-color: #209e91;
+  color: white;
+  margin-top: 15px;
+  margin-left: 15px;
+  width: 200px;
+  height: 50px;
+  font-size: 20px; }
+  button.btn.btn-email.disabled, button.btn.btn-email[disabled], fieldset[disabled] button.btn.btn-email, button.btn.btn-email.disabled:hover, button.btn.btn-email[disabled]:hover,
+  fieldset[disabled] button.btn.btn-email:hover, button.btn.btn-email.disabled:focus, button.btn.btn-email[disabled]:focus, fieldset[disabled] button.btn.btn-email:focus, button.btn.btn-email.disabled.focus, button.btn.btn-email[disabled].focus, fieldset[disabled] button.btn.btn-email.focus, button.btn.btn-email.disabled:active, button.btn.btn-email[disabled]:active, fieldset[disabled] button.btn.btn-email:active, button.btn.btn-email.disabled.active, button.btn.btn-email[disabled].active,
+  fieldset[disabled] button.btn.btn-email.active {
+    background: #209e91;
+    border-color: #2caa9d; }
+    button.btn.btn-email.disabled:hover, button.btn.btn-email[disabled]:hover, fieldset[disabled] button.btn.btn-email:hover, button.btn.btn-email.disabled:hover:hover, button.btn.btn-email[disabled]:hover:hover,
+    fieldset[disabled] button.btn.btn-email:hover:hover, button.btn.btn-email.disabled:focus:hover, button.btn.btn-email[disabled]:focus:hover, fieldset[disabled] button.btn.btn-email:focus:hover, button.btn.btn-email.disabled.focus:hover, button.btn.btn-email[disabled].focus:hover, fieldset[disabled] button.btn.btn-email.focus:hover, button.btn.btn-email.disabled:active:hover, button.btn.btn-email[disabled]:active:hover, fieldset[disabled] button.btn.btn-email:active:hover, button.btn.btn-email.disabled.active:hover, button.btn.btn-email[disabled].active:hover,
+    fieldset[disabled] button.btn.btn-email.active:hover {
+      transform: none; }
+  button.btn.btn-email:hover, button.btn.btn-email:focus, button.btn.btn-email.focus, button.btn.btn-email:active, button.btn.btn-email.active {
+    background: #209e91;
+    border-color: #088679; }
+  button.btn.btn-email:active, button.btn.btn-email:target {
+    background-color: #1b867b; }
 
 button.btn.btn-inverse {
   background: #949494;
