@@ -1,7 +1,7 @@
 ﻿(function() {
     "use strict";
 
-    var module = angular.module("BlurAdmin.pages.bookingvisit");
+    const module = angular.module("BlurAdmin.pages.bookingvisit");
 
     function controller() {
         var vm = this;
@@ -9,8 +9,8 @@
 
         var parseInitData = function() {
             vm.initData.data = global_InitData;
-            for (var visit = 0; visit < global_InitData.Visits.length; visit++) {
-                let elementDate = moment(global_InitData.Visits[visit].StartDate).toDate();
+            for (let visit = 0; visit < global_InitData.Visits.length; visit++) {
+                const elementDate = moment(global_InitData.Visits[visit].StartDate).toDate();
 
                 vm.initData.allVisits.push({
                     startDate: elementDate,
@@ -24,19 +24,29 @@
 
         var getConfirmedVisits = function() {
             let confirmedVisits = [];
-            confirmedVisits.filter(function(element, index, array) {
+            confirmedVisits = vm.initData.data.Visits.filter(function(element, index, array) {
                 return element.Confirmation === true;
             });
-            vm.initData.confirmedVisits = confirmedVisits;
+            for (let visit = 0; visit < confirmedVisits.length; visit++) {
+                const elementDate = moment(confirmedVisits[visit].StartDate).toDate();
+
+                vm.initData.confirmedVisits.push({
+                    startDate: elementDate,
+                    doctorId: confirmedVisits[visit].DoctorId,
+                    patientId: confirmedVisits[visit].PatientId,
+                    duration: confirmedVisits[visit].Duration,
+                    confirmation: confirmedVisits[visit].Confirmation
+                });
+            }
         };
 
         var getLastVisit = function() {
 
-            let allVisits = vm.initData.data.Visits;
+            const allVisits = vm.initData.data.Visits;
 
             allVisits.sort(function(a, b) {
-                let jsdateB = moment(b.StartDate).toDate();
-                let jsdateA = moment(a.StartDate).toDate();
+                const jsdateB = moment(b.StartDate).toDate();
+                const jsdateA = moment(a.StartDate).toDate();
                 return new Date(jsdateB) - new Date(jsdateA);
             });
 
@@ -47,9 +57,8 @@
                 duration: allVisits[0].Duration,
                 confirmation: allVisits[0].Confirmation
             });
-        }
-
-        vm.$onInit = function () {
+        };
+        vm.$onInit = function() {
             vm.initData = {};
             vm.initData.allVisits = [];
             vm.initData.confirmedVisits = [];
@@ -57,7 +66,7 @@
             parseInitData();
             getLastVisit();
             getConfirmedVisits();
-        }
+        };
     }
 
     module.component("bookingvisit",
@@ -66,4 +75,4 @@
         controllerAs: "vm",
         controller: controller
     });
-})(); 
+})();
