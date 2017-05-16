@@ -4,10 +4,7 @@
             <div class="panel-heading">My visit</div>
             <div class="panel-body">
                 <div class="row" ng-repeat="visit in vm.initData.allVisits">
-                    <div class="panel-primary">
-                        <div class="panel-heading">{{visit.startDate}}</div>
-                        <div class="panel-body">{{visit.confirmation}}</div>
-                    </div>
+                    <single-visit visit="visit"></single-visit>
                 </div>
             </div>
         </div>
@@ -15,13 +12,23 @@
     <div class="col-md-4">
         <div class="panel-blur">
             <div class="panel-heading">Confirmed visits</div>
-            <div class="panel-body"></div>
+            <div class="panel-body">
+                <div class="row" ng-repeat="visit in vm.initData.confirmedVisits">
+                    <single-visit visit="visit"></single-visit>
+                </div>
+            </div>
         </div>
     </div>
     <div class="col-md-4">
         <div class="panel-blur">
             <div class="panel-heading">Next visit</div>
-            <div class="panel-body"></div>
+            <div class="panel-body">
+                <div class="row" ng-repeat="visit in vm.initData.nestVisit">
+                    <div class="panel-primary">
+                        <single-visit visit="visit"></single-visit>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

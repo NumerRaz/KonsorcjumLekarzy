@@ -1,6 +1,8 @@
 ﻿@using Newtonsoft.Json
 @model KonsorcjumLekarzy.Models.DTOs.InitDTO
 
+
+
 <script>
     var global_InitData = {};
     global_InitData.Doctors = @Html.Raw(Json.Encode(Model.DoctorDto));
@@ -37,3 +39,5 @@
 <div id="preloader" ng-show="!$pageFinishedLoading">
     <div></div>
 </div>
+
+

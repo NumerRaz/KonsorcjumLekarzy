@@ -257,6 +257,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Angular\app.js" />
+    <Content Include="Angular\pages\bookingVisit\singleVisit\singleVisit.component.js" />
+    <Content Include="Angular\pages\bookingVisit\singleVisit\singleVisit.html" />
     <Content Include="Angular\pages\dashboard\dashboard.component.js" />
     <Content Include="Angular\pages\dashboard\dashboard.html" />
     <Content Include="Angular\pages\dashboard\dashboard.module.js" />
@@ -705,6 +707,7 @@
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <None Include="Properties\PublishProfiles\inzynieriainternetowa - Web Deploy.pubxml" />
+    <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\smart-table.js" />
     <Content Include="Scripts\smart-table.min.js" />
     <Content Include="Scripts\smart-table.min.js.map" />
