@@ -9,6 +9,8 @@ using KonsorcjumLekarzy.Models.DTOs;
 using KonsorcjumLekarzy.Services;
 using Microsoft.ApplicationInsights.Extensibility.Implementation;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity.Owin;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -42,6 +44,28 @@ namespace KonsorcjumLekarzy.Controllers
         {
             var vm = GetInitData();
             return View(vm);
+        }
+        
+        [AllowAnonymous]
+        [HttpPost]
+        public string ConfirmeVisit(int id)
+        {
+            var message = "";
+            if (id == null)
+            {
+                message = "Empty visit id";
+                return message;
+            }
+
+            var visit = _visitService.EntietiesList().FirstOrDefault(e => e.VisitID == id);
+            if (visit != null)
+            {
+                visit.Confirmation = true;
+            }
+
+            _visitService.UpdateEntity(visit);
+            message = "Data save correctly";
+            return message;
         }
 
         public JsonResult GetInitialData()
@@ -81,8 +105,18 @@ namespace KonsorcjumLekarzy.Controllers
         
         private InitDTO GetInitData()
         {
+            var account = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var initDto = new InitDTO();
             var activeUser = User.Identity;
+            var role = account.GetRoles(activeUser.GetUserId());
+            
+            var userDto = _userService.EntietiesList().Where(u => u.Id.Equals(activeUser.GetUserId()))
+                .Select(u => new UserDTO()
+                {
+                    id = u.Id,
+                    RoleName = role.ToString(),
+                    UserName = u.UserName
+                }).ToList();
 
             var specializationDto = _specializationService.EntietiesList().Select(spec => new SpecializationDTO()
             {
@@ -90,25 +124,7 @@ namespace KonsorcjumLekarzy.Controllers
                 SpecializationId = spec.SpecializationId,
                 SpecializationName = spec.SpecializationName
             });
-
-            var visitDto = _visitService.EntietiesList().Select(vi => new VisitDTO()
-            {
-                VisitID = vi.VisitID,
-                Confirmation = vi.Confirmation,
-                Duration = vi.Duration,
-                StartDate = vi.StartDate,
-                PatientId = vi.PatientId,
-                DoctorId = vi.DoctorId
-            });
-
-            var userDto = _userService.EntietiesList().Where(u=>u.Id.Equals(activeUser.GetUserId()))
-                .Select(u => new UserDTO()
-                {
-                    id = u.Id,
-                    RoleName = Roles.GetRolesForUser(activeUser.Name).FirstOrDefault(),
-                    UserName = u.UserName
-                }).ToList();
-
+            
             var doctorsDto = _doctorService.EntietiesList().Select(d => new DoctorDTO()
             {
                 DoctorId = d.DoctorId,
@@ -144,6 +160,35 @@ namespace KonsorcjumLekarzy.Controllers
                     UserName = _userService.EntietiesList().Where(u => u.Id == p.UserId).Select(s => s.UserName).FirstOrDefault(),
                 }
             }).ToList();
+
+            var visitDto = new List<VisitDTO>();
+
+            if (role.FirstOrDefault() == "Doctor")
+            {
+                var activeDoctorId = _doctorService.EntietiesList().FirstOrDefault(d => d.UserId == activeUser.GetUserId());
+                visitDto = _visitService.EntietiesList().Where(v=>v.DoctorId == activeDoctorId.DoctorId).Select(vi => new VisitDTO()
+                {
+                    VisitID = vi.VisitID,
+                    Confirmation = vi.Confirmation,
+                    Duration = vi.Duration,
+                    StartDate = vi.StartDate,
+                    PatientId = vi.PatientId,
+                    DoctorId = vi.DoctorId
+                }).ToList();
+            }
+            else if (role.FirstOrDefault() == "Patient")
+            {
+                var activePatientId = _patientService.EntietiesList().FirstOrDefault(d => d.UserId == activeUser.GetUserId());
+                visitDto = _visitService.EntietiesList().Where(v => v.PatientId == activePatientId.PatientId).Select(vi => new VisitDTO()
+                {
+                    VisitID = vi.VisitID,
+                    Confirmation = vi.Confirmation,
+                    Duration = vi.Duration,
+                    StartDate = vi.StartDate,
+                    PatientId = vi.PatientId,
+                    DoctorId = vi.DoctorId
+                }).ToList();
+            }
 
             initDto.DoctorDto = doctorsDto;
             initDto.PatientDto = patientsDto;

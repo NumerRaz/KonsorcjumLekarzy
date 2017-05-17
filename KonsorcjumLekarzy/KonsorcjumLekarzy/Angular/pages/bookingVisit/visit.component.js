@@ -13,13 +13,28 @@
                 const elementDate = moment(global_InitData.Visits[visit].StartDate).toDate();
 
                 vm.initData.allVisits.push({
+                    visitId: global_InitData.Visits[visit].VisitID,
                     startDate: elementDate,
-                    doctorId: global_InitData.Visits[visit].DoctorId,
-                    patientId: global_InitData.Visits[visit].PatientId,
+                    doctorId: getUserById("doctor",global_InitData.Visits[visit].DoctorId),
+                    patientId: getUserById("patient",global_InitData.Visits[visit].PatientId),
                     duration: global_InitData.Visits[visit].Duration,
                     confirmation: global_InitData.Visits[visit].Confirmation
                 });
             }
+        };
+
+        var getUserById = function(userType, id) {
+            let searchUser = {};
+            if (userType === "doctor") {
+                searchUser = global_InitData.Doctors.filter(function(element) {
+                    return element.DoctorId === id;
+                });
+            } else if (userType === "patient") {
+                searchUser = global_InitData.Patients.filter(function(element) {
+                    return element.PatientId === id;
+                });
+                return searchUser[0].FirstName + " " + searchUser[0].LastName;
+            };
         };
 
         var getConfirmedVisits = function() {
@@ -31,6 +46,7 @@
                 const elementDate = moment(confirmedVisits[visit].StartDate).toDate();
 
                 vm.initData.confirmedVisits.push({
+                    visitId: global_InitData.Visits[visit].VisitID,
                     startDate: elementDate,
                     doctorId: confirmedVisits[visit].DoctorId,
                     patientId: confirmedVisits[visit].PatientId,
@@ -51,6 +67,7 @@
             });
 
             vm.initData.nestVisit.push({
+                visitId: allVisits[0].VisitID,
                 startDate: moment(allVisits[0].StartDate).toDate(),
                 doctorId: allVisits[0].DoctorId,
                 patientId: allVisits[0].PatientId,

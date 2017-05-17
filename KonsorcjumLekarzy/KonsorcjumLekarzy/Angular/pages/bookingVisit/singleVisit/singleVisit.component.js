@@ -3,12 +3,32 @@
 
     var module = angular.module("BlurAdmin.pages.bookingvisit");
 
-    function controller() {
+    controller.$inject = ["$http"];
+
+    function controller($http) {
         var vm = this;
-        
-        vm.$onInit = function () {
-            console.log(vm.visit);
-        }
+
+        var saveChanges = function() {
+            var data = {
+                id: vm.visit.visitId
+            }
+            $http.post('/Home/ConfirmeVisit/', data)
+            .success(function (data, status, headers, config) {
+                    vm.visit.confirmation = true;
+                    console.log(data);
+                })
+            .error(function (data, status, headers, config) {
+                    vm.visit.confirmation = false;
+                    console.log(data);
+                });
+        };
+
+        vm.confirmVisit = function() {
+            saveChanges();
+        };
+
+        vm.$onInit = function() {
+        };
     }
 
     module.component("singleVisit",
