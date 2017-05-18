@@ -9,6 +9,10 @@
 
         var parseInitData = function() {
             vm.initData.data = global_InitData;
+            vm.initData.activeUser = global_InitData.User;
+            vm.userRole = vm.initData.activeUser[0].RoleName;
+            console.log(vm.userRole);
+            vm.initData.activeUser = global_InitData
             for (let visit = 0; visit < global_InitData.Visits.length; visit++) {
                 const elementDate = moment(global_InitData.Visits[visit].StartDate).toDate();
 
@@ -66,17 +70,23 @@
                 return new Date(jsdateB) - new Date(jsdateA);
             });
 
-            vm.initData.nestVisit.push({
-                visitId: allVisits[0].VisitID,
-                startDate: moment(allVisits[0].StartDate).toDate(),
-                doctorId: allVisits[0].DoctorId,
-                patientId: allVisits[0].PatientId,
-                duration: allVisits[0].Duration,
-                confirmation: allVisits[0].Confirmation
-            });
+            if (allVisits.length > 0) {
+                vm.initData.nestVisit.push({
+                    visitId: allVisits[0].VisitID,
+                    startDate: moment(allVisits[0].StartDate).toDate(),
+                    doctorId: allVisits[0].DoctorId,
+                    patientId: allVisits[0].PatientId,
+                    duration: allVisits[0].Duration,
+                    confirmation: allVisits[0].Confirmation
+                });
+            }
+
+            
         };
         vm.$onInit = function() {
             vm.initData = {};
+            vm.initData.activeUser = {};
+            vm.userRole = ""; 
             vm.initData.allVisits = [];
             vm.initData.confirmedVisits = [];
             vm.initData.nestVisit = [];

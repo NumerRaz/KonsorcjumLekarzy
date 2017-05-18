@@ -108,13 +108,13 @@ namespace KonsorcjumLekarzy.Controllers
             var account = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
             var initDto = new InitDTO();
             var activeUser = User.Identity;
-            var role = account.GetRoles(activeUser.GetUserId());
+            var role = account.GetRoles(activeUser.GetUserId()).ToList();
             
             var userDto = _userService.EntietiesList().Where(u => u.Id.Equals(activeUser.GetUserId()))
                 .Select(u => new UserDTO()
                 {
                     id = u.Id,
-                    RoleName = role.ToString(),
+                    RoleName = role.FirstOrDefault(),
                     UserName = u.UserName
                 }).ToList();
 
