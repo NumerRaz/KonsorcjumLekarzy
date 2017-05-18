@@ -265,6 +265,10 @@
     <Content Include="Angular\pages\dashboard\dashboardPieChart\dashboardPieChart.directive.js" />
     <Content Include="Angular\pages\dashboard\dashboardPieChart\dashboardPieChart.html" />
     <Content Include="Angular\pages\dashboard\dashboardPieChart\DashboardPieChartCtrl.js" />
+    <Content Include="Angular\pages\doctors\datePickers\datepickerCtrl.js" />
+    <Content Include="Angular\pages\doctors\datePickers\datepickerpopupCtrl.js" />
+    <Content Include="Angular\pages\doctors\datePickers\datePickers.html" />
+    <Content Include="Angular\pages\doctors\datePickers\datePickersPopup.html" />
     <Content Include="Angular\pages\doctors\doctors.component.js" />
     <Content Include="Angular\pages\doctors\doctors.html" />
     <Content Include="Angular\pages\doctors\doctors.module.js" />
@@ -756,6 +760,7 @@
     <Content Include="Views\Shared\_LayoutLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Angular\pages\doctors\emailSender\" />
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Views\Shared\Patient\" />
     <Folder Include="Interfaces\" />

@@ -1,0 +1,9 @@
+<div class="datepicker row" style="color: white">
+    <div class="col-lg-6 col-lg-offset-3 col-md-12 col-sm-6">
+        <label>Selected date is: <em>{{vm.dt | date:'fullDate' }}</em></label>
+        <div class="uib-datepicker-wrap">
+            <uib-datepicker ng-model="vm.dt" datepicker-options="options"></uib-datepicker>
+        </div>
+    </div>
+    <date-picker-popup dt="vm.dt"></date-picker-popup>
+</div>

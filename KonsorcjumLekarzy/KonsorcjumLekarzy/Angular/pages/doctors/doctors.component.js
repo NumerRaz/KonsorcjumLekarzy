@@ -46,24 +46,11 @@
         };
 
         vm.bookingVisit = function() {
-            const selectDoctor = vm.getActiveDoctor();
-            if (selectDoctor.length > 0) {
-                vm.displayErrorMessages = false;
-                console.log(`Booking visit: ${selectDoctor[0].FirstName}`);
-            } else {
-                vm.displayErrorMessages = true;
-            }
+            vm.actionType = "bookingVisit";
         };
 
         vm.sendMessage = function() {
-            const selectDoctor = vm.getActiveDoctor();
-            if (selectDoctor.length > 0) {
-                vm.displayErrorMessages = false;
-                console.log(`Send messages: ${selectDoctor[0].FirstName}`);
-
-            } else {
-                vm.displayErrorMessages = true;
-            }
+            vm.actionType = "sendEmail";
         };
 
         vm.$onInit = function() {
@@ -73,6 +60,7 @@
             vm.initData.selectedDoctor = {};
             vm.displayErrorMessages = false;
             vm.errorMessagesAvaliableActions = "You need to select a doctor to perform the action.";
+            vm.actionType = "";
             parseInitData();
             getInitData();
             getSelectedDoctor();
