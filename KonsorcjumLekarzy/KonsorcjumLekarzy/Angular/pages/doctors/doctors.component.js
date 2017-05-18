@@ -46,11 +46,28 @@
         };
 
         vm.bookingVisit = function() {
-            vm.actionType = "bookingVisit";
+            if (vm.initData.selectedDoctor.label !== "" &&
+                vm.initData.selectedDoctor.label !== undefined &&
+                vm.initData.selectedDoctor.label !== null)
+            {
+                vm.actionType = "bookingVisit";
+                vm.displayErrorMessages = false;
+            } else {
+                vm.displayErrorMessages = true;
+            }
         };
 
         vm.sendMessage = function() {
-            vm.actionType = "sendEmail";
+            if (vm.initData.selectedDoctor.label !== "" &&
+                vm.initData.selectedDoctor.label !== undefined &&
+                vm.initData.selectedDoctor.label !== null)
+            {
+                vm.actionType = "sendEmail";
+                vm.displayErrorMessages = false;
+            } else {
+                vm.displayErrorMessages = true;
+            }
+            
         };
 
         vm.$onInit = function() {

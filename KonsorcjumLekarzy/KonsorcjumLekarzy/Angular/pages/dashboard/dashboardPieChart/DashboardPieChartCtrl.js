@@ -21,12 +21,7 @@
       description: 'New visit',
       url: 'bookingvisit',
       icon: 'refresh',
-    }, {
-      color: pieColor,
-      description: 'My visit',
-      url: '',
-      icon: 'face',
-    }, {
+    },{
       color: pieColor,
       description: 'Profile',
       stats: '',

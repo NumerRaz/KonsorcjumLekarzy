@@ -272,6 +272,8 @@
     <Content Include="Angular\pages\doctors\doctors.component.js" />
     <Content Include="Angular\pages\doctors\doctors.html" />
     <Content Include="Angular\pages\doctors\doctors.module.js" />
+    <Content Include="Angular\pages\doctors\emailSender\emailSender.html" />
+    <Content Include="Angular\pages\doctors\emailSender\emailSender.js" />
     <Content Include="Angular\pages\doctors\selectPanel\GroupSelectpickerOptions.js" />
     <Content Include="Angular\pages\doctors\selectPanel\select.html" />
     <Content Include="Angular\pages\doctors\selectPanel\selectPickerPanel.component.js" />
@@ -760,7 +762,6 @@
     <Content Include="Views\Shared\_LayoutLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Angular\pages\doctors\emailSender\" />
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Views\Shared\Patient\" />
     <Folder Include="Interfaces\" />

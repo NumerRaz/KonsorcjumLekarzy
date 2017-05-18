@@ -28,16 +28,14 @@
     </div>
     
     <div class="col-md-6 col-xs-12">
-        <div ng-show="vm.actionType == ''">
+        <div ng-show="vm.actionType == '' || vm.displayErrorMessages">
             <div class="alert bg-info">
                 <h3>{{vm.errorMessagesAvaliableActions}}</h3>
             </div>
         </div>
         
         <div ng-show="vm.actionType == 'sendEmail'">
-            <div class="alert bg-primary">
-                sendEmail
-            </div>
+                <email-sender></email-sender>
         </div>
         
         <div ng-show="vm.actionType == 'bookingVisit'">
