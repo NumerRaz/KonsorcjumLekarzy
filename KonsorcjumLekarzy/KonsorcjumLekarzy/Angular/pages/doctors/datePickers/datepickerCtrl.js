@@ -15,8 +15,7 @@
     module.component('datePicker', {
         templateUrl: "Angular/pages/doctors/datePickers/datePickers.html",
         bindings: {
-            doctor: '<',
-            patient: '<'
+            dt: "="
         },
         controllerAs: "vm",
         controller: controller

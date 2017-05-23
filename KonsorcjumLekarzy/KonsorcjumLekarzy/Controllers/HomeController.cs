@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using System.Web.WebPages;
 using KonsorcjumLekarzy.Database.Model;
 using KonsorcjumLekarzy.Models.DTOs;
 using KonsorcjumLekarzy.Services;
@@ -66,6 +67,22 @@ namespace KonsorcjumLekarzy.Controllers
             _visitService.UpdateEntity(visit);
             message = "Data save correctly";
             return message;
+        }
+
+        [HttpPost]
+        public void BookingVisit(string hour, string day, string doctor, string patient)
+        {
+            var data = day.AsDateTime().Date;
+            var newData = new DateTime(data.Year, data.Month, data.Day, Int32.Parse(hour.AsDateTime().Hour.ToString()), 0,0);
+            var getPatient = _patientService.EntietiesList().Where(x => x.UserId == patient).Select(p => p.PatientId).FirstOrDefault();
+
+            var visit = new Visit();
+            visit.DoctorId = Int32.Parse(doctor);
+            visit.PatientId = getPatient;
+            visit.Confirmation = false;
+            visit.StartDate = newData;
+
+            _visitService.CreateEntity(visit);
         }
 
         public JsonResult GetInitialData()

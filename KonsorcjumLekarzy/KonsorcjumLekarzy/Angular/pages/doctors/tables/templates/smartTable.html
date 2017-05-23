@@ -1,7 +1,4 @@
 <div class="horizontal-scroll">
-    <div class="well well-lg">
-        {{vm.doctorsData}}
-    </div>
     <button ng-if="vm.getTableDateButtonAvaliable" ng-click="vm.getTableData()" class="btn btn-primary">Get table data</button>
     <table class="table" st-table="vm.smartTableDataWatch" st-safe-src="vm.smartTableData" style="color: white;">
         <thead>
