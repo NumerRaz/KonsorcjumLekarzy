@@ -70,7 +70,7 @@ namespace KonsorcjumLekarzy.Controllers
         }
 
         [HttpPost]
-        public void BookingVisit(string hour, string day, string doctor, string patient)
+        public string BookingVisit(string hour, string day, string doctor, string patient)
         {
             var data = day.AsDateTime().Date;
             var newData = new DateTime(data.Year, data.Month, data.Day, Int32.Parse(hour.AsDateTime().Hour.ToString()), 0,0);
@@ -81,8 +81,18 @@ namespace KonsorcjumLekarzy.Controllers
             visit.PatientId = getPatient;
             visit.Confirmation = false;
             visit.StartDate = newData;
-
+            
             _visitService.CreateEntity(visit);
+
+            if (string.IsNullOrEmpty(_visitService.ShowEntity(visit.VisitID).VisitID.ToString()))
+            {
+                return "Faild during booking visit. Please try again";
+            }
+            else
+            {
+                return "Visit booking";
+            }
+
         }
 
         public JsonResult GetInitialData()

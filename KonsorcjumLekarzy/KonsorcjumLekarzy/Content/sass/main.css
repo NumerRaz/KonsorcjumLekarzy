@@ -1,4 +1,12 @@
-﻿@font-face {
+﻿.custom-visit-save {
+  text-align: center;
+  margin-top: 31px; }
+  .custom-visit-save .custom-button {
+    width: 220px;
+    height: 60px;
+    margin-bottom: 25px; }
+
+@font-face {
   font-family: 'socicon';
   src: url("../assets/fonts/socicon.eot");
   src: url("../assets/fonts/socicon.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/socicon.woff") format("woff"), url("../assets/fonts/socicon.woff2") format("woff2"), url("../assets/fonts/socicon.ttf") format("truetype"), url("../assets/fonts/socicon.svg#sociconregular") format("svg");
@@ -350,6 +358,7 @@ button.btn.btn-default {
     color: #666666; }
 
 button.btn.btn-success {
+  width: 118px;
   background: #90b900;
   border-color: #90b900; }
   button.btn.btn-success.disabled, button.btn.btn-success[disabled], fieldset[disabled] button.btn.btn-success, button.btn.btn-success.disabled:hover, button.btn.btn-success[disabled]:hover,
@@ -2527,6 +2536,7 @@ button.btn.btn-default {
     color: #666666; }
 
 button.btn.btn-success {
+  width: 118px;
   background: #90b900;
   border-color: #90b900; }
   button.btn.btn-success.disabled, button.btn.btn-success[disabled], fieldset[disabled] button.btn.btn-success, button.btn.btn-success.disabled:hover, button.btn.btn-success[disabled]:hover,

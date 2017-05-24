@@ -76,8 +76,8 @@
 
         };
 
-        vm.saveVisit = function(item) {
-            const actualHour = item.target.innerText;
+        vm.saveVisit = function () {
+            const actualHour = vm.selectedHours;
             const actualDay = vm.dt;
             const actualSelectedDoctor = vm.initData.selectedDoctor;
             const actualUser = global_InitData.User;
@@ -95,12 +95,17 @@
                         }
                     })
                     .then(function(response) {
-                        console.log(response);
+                            vm.visitSaveStatus = "success";
                         },
-                        function(response) { 
-                            // failed
+                        function (response) {
+                            vm.visitSaveStatus = "fail";
+                            alert("Faild during booking visit. Please try again");
                         });
             }
+        };
+
+        vm.setVisitHour = function (item) {
+            vm.selectedHours = item.target.innerText;
         };
 
         vm.$onInit = function() {
@@ -116,6 +121,7 @@
             vm.errorMessagesAvaliableActions = "You need to select a doctor to perform the action.";
             vm.actionType = "";
             vm.userRole = "";
+            vm.visitSaveStatus = "";
             parseInitData();
             getInitData();
             getSelectedDoctor();

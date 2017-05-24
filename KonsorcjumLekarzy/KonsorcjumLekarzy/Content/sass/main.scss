@@ -1,3 +1,14 @@
+.custom-visit-save{
+    text-align: center;
+    margin-top: 31px;
+    
+    .custom-button{
+        width: 220px;
+        height: 60px;
+        margin-bottom: 25px;
+    }
+}
+
 @import 'common.scss';
 @import 'auth.scss';
 @import "theme/bootstrap-overrides/panel";

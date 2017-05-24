@@ -8,22 +8,22 @@
         </div>
     </div>
 
-    <div class="row" ng-show="m.userRole == 'Doctor' || vm.userRole == 'Patient'">
+    <div class="row" ng-show="vm.userRole == 'Doctor' || vm.userRole == 'Patient'" style="padding: 0 50px;">
         <div class="row">
             <h2 class="text-center">Select doctor</h2>
             <select-picker-panel select-doctors="vm.selectDoctors(item)"></select-picker-panel>
         </div>
         <div class="col-md-6 col-xs-12">
             <div class="row">
-                <div class="row">
+                <div class="row" ng-show="vm.userRole == 'Patient'">
                     <div class="col-md-6">
                         <button ng-click="vm.bookingVisit()" class="btn  btn-booking-visit">Booking visit</button>
                     </div>
                     <div class="col-md-6">
                         <div ng-show="vm.displayErrorMessages">
-                            <h2 class="text-danger text-center">
+                            <h3 class="text-danger text-center">
                                 Please, choose the doctor.
-                            </h2>
+                            </h3>
                         </div>
                     </div>
                 </div>
@@ -48,13 +48,24 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row" ng-show="vm.userRole == 'Patient'">
             <div ng-show="vm.selectedDoctorState && vm.actionType == 'bookingVisit'">
-                <h2>Choose the hour of your visit</h2>
-                <div ng-repeat="hours in vm.initData.avaliableHours">
-                    <div class="col-md-1">
-                        <button ng-click="vm.saveVisit($event)" class="btn btn-success btn-lg">{{hours}}</button>
+                <div class="row">
+                    <h2>Choose the hour of your visit</h2>
+                    <div ng-repeat="hours in vm.initData.avaliableHours">
+                        <div class="col-md-1" style="margin: 0 15px;">
+                            <button ng-click="vm.setVisitHour($event)" class="btn btn-success btn-lg">{{hours}}</button>
+                        </div>
                     </div>
+                </div>
+                <div class="row custom-visit-save">
+                    <button ng-click="vm.saveVisit()" class="btn btn-danger btn-lg custom-button">Submit visit !</button>
+                </div>
+                <div class="row" ng-show="vm.visitSaveStatus == 'success'">
+                    <h2 class="text-danger text-center">Visit save corrertly.</h2>
+                </div>
+                <div class="row" ng-show="vm.visitSaveStatus == 'fail'">
+                    <h2 class="text-danger text-center">Faild during booking visit. Please try again.</h2>
                 </div>
             </div>
         </div>

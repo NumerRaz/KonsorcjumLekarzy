@@ -79,6 +79,7 @@ button.btn.btn-default {
 }
 
 button.btn.btn-success {
+  width: 118px;
   @include buttonColor($success, $success);
   &:active, &:target {
     background-color: $success-dark;
