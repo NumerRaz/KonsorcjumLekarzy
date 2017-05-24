@@ -9,7 +9,8 @@
     'ui.router',
     'BlurAdmin.pages.dashboard',
     'BlurAdmin.pages.doctors',
-    'BlurAdmin.pages.bookingvisit'
+    'BlurAdmin.pages.bookingvisit',
+    'BlurAdmin.pages.profile'
   ])
       .config(routeConfig);
 

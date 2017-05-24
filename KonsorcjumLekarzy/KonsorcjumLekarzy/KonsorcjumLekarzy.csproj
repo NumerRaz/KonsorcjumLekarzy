@@ -284,6 +284,9 @@
     <Content Include="Angular\pages\bookingVisit\visit.component.js" />
     <Content Include="Angular\pages\bookingVisit\bookingvisit.html" />
     <Content Include="Angular\pages\bookingVisit\visit.module.js" />
+    <Content Include="Angular\pages\profile\profile.component.js" />
+    <Content Include="Angular\pages\profile\profile.html" />
+    <Content Include="Angular\pages\profile\profile.module.js" />
     <Content Include="Angular\services\data.services.js" />
     <Content Include="Angular\theme\components\backTop\backTop.directive.js" />
     <Content Include="Angular\theme\components\backTop\backTop.html" />

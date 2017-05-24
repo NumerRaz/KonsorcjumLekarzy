@@ -24,7 +24,7 @@
     },{
       color: pieColor,
       description: 'Profile',
-      stats: '',
+      url: 'profile',
       icon: 'person',
     }, {
       color: pieColor,
