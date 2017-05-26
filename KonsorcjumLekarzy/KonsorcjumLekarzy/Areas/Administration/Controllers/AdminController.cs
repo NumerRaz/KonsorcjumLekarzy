@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace KonsorcjumLekarzy.Areas.Administration.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         // GET: Administration/Admin

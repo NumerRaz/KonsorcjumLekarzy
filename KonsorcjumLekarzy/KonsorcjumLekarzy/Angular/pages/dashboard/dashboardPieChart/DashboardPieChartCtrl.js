@@ -26,11 +26,6 @@
       description: 'Profile',
       url: 'profile',
       icon: 'person',
-    }, {
-      color: pieColor,
-      description: 'Work schedule',
-      stats: '',
-      icon: 'money',
     }
 
     ];

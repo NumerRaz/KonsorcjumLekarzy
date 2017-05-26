@@ -11,6 +11,7 @@ using KonsorcjumLekarzy.Services;
 
 namespace KonsorcjumLekarzy.Areas.Administration.Controllers
 {
+    [Authorize]
     public class DocotrsController : Controller
     {
         private readonly IGenericService<Doctor> doctorService;

@@ -608,11 +608,6 @@
     <Content Include="Areas\Administration\Views\Docotrs\Edit.cshtml" />
     <Content Include="Areas\Administration\Views\Docotrs\Delete.cshtml" />
     <Content Include="Areas\Administration\Views\Docotrs\Details.cshtml" />
-    <Content Include="Areas\Administration\Views\Specialization\Index.cshtml" />
-    <Content Include="Areas\Administration\Views\Specialization\Details.cshtml" />
-    <Content Include="Areas\Administration\Views\Specialization\Create.cshtml" />
-    <Content Include="Areas\Administration\Views\Specialization\Edit.cshtml" />
-    <Content Include="Areas\Administration\Views\Specialization\Delete.cshtml" />
     <Content Include="Areas\Administration\Views\Patient\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Patient\Details.cshtml" />
     <Content Include="Areas\Administration\Views\Patient\Edit.cshtml" />
@@ -630,6 +625,11 @@
     <Content Include="Areas\Administration\Views\Visit\Delete.cshtml" />
     <Content Include="Areas\Administration\Views\Visit\Index.cshtml" />
     <Content Include="Areas\Administration\Views\Visit\Create.cshtml" />
+    <Content Include="Areas\Administration\Views\Specialization\Details.cshtml" />
+    <Content Include="Areas\Administration\Views\Specialization\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Specialization\Create.cshtml" />
+    <Content Include="Areas\Administration\Views\Specialization\Edit.cshtml" />
+    <Content Include="Areas\Administration\Views\Specialization\Delete.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>

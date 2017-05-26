@@ -7,9 +7,11 @@ using KonsorcjumLekarzy.Database.Model;
 using KonsorcjumLekarzy.Database.Repository;
 using KonsorcjumLekarzy.Services;
 using System.Data;
+using KonsorcjumLekarzy.Infrastucture;
 
 namespace KonsorcjumLekarzy.Areas.Administration.Controllers
 {
+    [Authorize]
     public class SpecializationController : Controller
     {
         private readonly IGenericService<Specialization> specializationService;

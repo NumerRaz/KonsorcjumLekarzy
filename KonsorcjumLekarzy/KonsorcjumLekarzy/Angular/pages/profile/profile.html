@@ -1,71 +1,141 @@
-﻿<div ba-panel ba-panel-class="profile-page">
-<div class="panel-content">
-<h3 class="with-line">General Information</h3>
+﻿<!-- User : Doctor || Patient -->
 
-<div class="row">
-    <div class="col-md-6">
-        <div class="form-group row clearfix">
-            <label for="inputFirstName" class="col-sm-3 control-label">First Name</label>
+<div ba-panel ba-panel-class="profile-page" ng-if="vm.currentUserRole == 'Doctor' || vm.currentUserRole == 'Patient'">
+    <div class="panel-content">
+        <h3 class="with-line">General Information</h3>
 
-            <div class="col-sm-9">
-                <input type="text" class="form-control" id="inputFirstName" placeholder="" value="Anastasiya">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group row clearfix">
+                    <label for="inputFirstName" class="col-sm-3 control-label">User name</label>
+                    <div class="col-sm-9">
+                        <input ng-model="vm.initData.User[0].UserDto.UserName" type="text" class="form-control" id="inputFirstName" placeholder="" value="{{vm.initData.User[0].UserDto.UserName}}">
+                    </div>
+                </div>
+                <div class="form-group row clearfix">
+                    <label for="inputFirstName" class="col-sm-3 control-label">First Name</label>
+                    <div class="col-sm-9">
+                        <input ng-model="vm.initData.User[0].UserDto.FirstName" type="text" class="form-control" id="inputFirstName" placeholder="" value="{{vm.initData.User[0].UserDto.FirstName}}">
+                    </div>
+                </div>
+                <div class="form-group row clearfix">
+                    <label for="inputLastName" class="col-sm-3 control-label">Last Name</label>
+                    <div class="col-sm-9">
+                        <input ng-model="vm.initData.User[0].UserDto.LastName" type="text" class="form-control" id="inputLastName" placeholder="" value="{{vm.initData.User[0].UserDto.LastName}}">
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="form-group row clearfix">
-            <label for="inputLastName" class="col-sm-3 control-label">Last Name</label>
 
-            <div class="col-sm-9">
-                <input type="text" class="form-control" id="inputLastName" placeholder="" value="">
+        <h3 class="with-line">Change Password</h3>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group row clearfix">
+                    <label for="inputPassword" class="col-sm-3 control-label">Password</label>
+                    <div class="col-sm-9">
+                        <input ng-model="vm.password" type="password" class="form-control" id="inputPassword" placeholder="" value="{{vm.password}}">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group row clearfix">
+                    <label for="inputConfirmPassword" class="col-sm-3 control-label">Confirm Password</label>
+                    <div class="col-sm-9">
+                        <input ng-model="vm.passwordConfirm" type="password" class="form-control" id="inputConfirmPassword" placeholder="" value="{{vm.passwordConfirm}}">
+                    </div>
+                </div>
             </div>
         </div>
+
+        <h3 class="with-line">Contact Information</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group row clearfix">
+                    <label for="inputEmail3" class="col-sm-3 control-label">Email</label>
+                    <div class="col-sm-9">
+                        <input ng-model="vm.initData.User[0].UserDto.Email" type="email" class="form-control" id="inputEmail3" placeholder="" value="{{vm.initData.User[0].UserDto.Email}}">
+                    </div>
+                </div>
+                <div class="form-group row clearfix">
+                    <label for="inputPhone" class="col-sm-3 control-label">Phone</label>
+                    <div class="col-sm-9">
+                        <input ng-model="vm.initData.User[0].UserDto.PhoneNumber" type="text" class="form-control" id="inputPhone" placeholder="" value="{{vm.initData.User[0].UserDto.PhoneNumber}}">
+                    </div>
+                </div>
+                <div class="form-group row clearfix">
+                    <label for="inputPhone" class="col-sm-3 control-label">Date of birth</label>
+                    <div class="col-sm-9">
+                        <input ng-model="vm.initData.User[0].UserDto.BirthDay" type="text" class="form-control" id="inputBirthDate" placeholder="" value="{{vm.initData.User[0].UserDto.BirthDay}}">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button ng-click="vm.updateUserInfo()" type="button" class="btn btn-primary btn-with-icon save-profile">
+            <i class="ion-android-checkmark-circle"></i>Update Profile
+        </button>
     </div>
 </div>
 
-<h3 class="with-line">Change Password</h3>
-
-<div class="row">
-    <div class="col-md-6">
-        <div class="form-group row clearfix">
-            <label for="inputPassword" class="col-sm-3 control-label">Password</label>
-
-            <div class="col-sm-9">
-                <input type="password" class="form-control" id="inputPassword" placeholder="" value="12345678">
+<!-- User : Admin -->
+<div ba-panel ba-panel-class="profile-page" ng-if="vm.currentUserRole == 'Admin'">
+    <div class="panel-content">
+        <h3 class="with-line">General Information</h3>
+        <div class="row">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row clearfix">
+                        <label for="inputFirstName" class="col-sm-3 control-label">User name</label>
+                        <div class="col-sm-9">
+                            <input ng-model="vm.initData.User.UserName" type="text" class="form-control" id="inputFirstName" placeholder="" value="{{vm.initData.User.UserName}}">
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <h3 class="with-line">Change Password</h3>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row clearfix">
+                        <label for="inputPassword" class="col-sm-3 control-label">Password</label>
+                        <div class="col-sm-9">
+                            <input ng-model="vm.password" type="password" class="form-control" id="inputPassword" placeholder="" value="{{vm.password}}">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row clearfix">
+                        <label for="inputConfirmPassword" class="col-sm-3 control-label">Confirm Password</label>
+                        <div class="col-sm-9">
+                            <input ng-model="vm.passwordConfirm" type="password" class="form-control" id="inputConfirmPassword" placeholder="" value="{{vm.passwordConfirm}}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h3 class="with-line">Contact Information</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group row clearfix">
+                        <label for="inputEmail3" class="col-sm-3 control-label">Email</label>
+                        <div class="col-sm-9">
+                            <input ng-model="vm.initData.User.Email" type="email" class="form-control" id="inputEmail3" placeholder="" value="{{vm.initData.User.Email}}">
+                        </div>
+                    </div>
+                    <div class="form-group row clearfix">
+                        <label for="inputPhone" class="col-sm-3 control-label">Phone</label>
+                        <div class="col-sm-9">
+                            <input ng-model="vm.initData.User.PhoneNumber" type="text" class="form-control" id="inputPhone" placeholder="" value="{{vm.initData.User.PhoneNumber}}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button ng-click="vm.updateUserInfo()" type="button" class="btn btn-primary btn-with-icon save-profile">
+                <i class="ion-android-checkmark-circle"></i>Update Profile
+            </button>
         </div>
     </div>
-    <div class="col-md-6">
-        <div class="form-group row clearfix">
-            <label for="inputConfirmPassword" class="col-sm-3 control-label">Confirm Password</label>
-
-            <div class="col-sm-9">
-                <input type="password" class="form-control" id="inputConfirmPassword" placeholder="">
-            </div>
-        </div>
-    </div>
-</div>
-
-<h3 class="with-line">Contact Information</h3>
-
-<div class="row">
-    <div class="col-md-6">
-        <div class="form-group row clearfix">
-            <label for="inputEmail3" class="col-sm-3 control-label">Email</label>
-
-            <div class="col-sm-9">
-                <input type="email" class="form-control" id="inputEmail3" placeholder="" value="contact@akveo.com">
-            </div>
-        </div>
-        <div class="form-group row clearfix">
-            <label for="inputPhone" class="col-sm-3 control-label">Phone</label>
-
-            <div class="col-sm-9">
-                <input type="text" class="form-control" id="inputPhone" placeholder="" value="+1 (23) 456 7890">
-            </div>
-        </div>
-    </div>
-</div>
-
-<button type="button" class="btn btn-primary btn-with-icon save-profile">
-    <i class="ion-android-checkmark-circle"></i>Update Profile</button>
-</div>
 </div>

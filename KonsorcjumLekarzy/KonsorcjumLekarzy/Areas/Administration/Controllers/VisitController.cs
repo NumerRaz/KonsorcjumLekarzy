@@ -10,6 +10,7 @@ using KonsorcjumLekarzy.Services;
 
 namespace KonsorcjumLekarzy.Areas.Administration.Controllers
 {
+    [Authorize]
     public class VisitController : Controller
     {
         private readonly IGenericService<Visit> visitService;

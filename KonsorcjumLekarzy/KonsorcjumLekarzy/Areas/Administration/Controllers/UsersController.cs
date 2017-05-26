@@ -9,6 +9,7 @@ using KonsorcjumLekarzy.Services;
 
 namespace KonsorcjumLekarzy.Areas.Administration.Controllers
 {
+    [Authorize]
     public class UsersController : Controller
     {
         private readonly IGenericService<ApplicationUser> _userService;

@@ -95,6 +95,58 @@ namespace KonsorcjumLekarzy.Controllers
 
         }
 
+        [HttpPost]
+        public void UpdateUserData(string id, string userName, string firstName, string lastName, string birthDay, string phoneNumber, string email, string roleName, string password)
+        {
+            var account = new UserManager<IdentityUser>(new UserStore<IdentityUser>());
+            var user = _userService.ShowEntity(id);
+            switch (roleName)
+            {
+                case "Doctor":
+                        var getDoctorByUserId = _doctorService.EntietiesList().FirstOrDefault(d => d.UserId == id);
+                        if (getDoctorByUserId != null)
+                        {
+                            getDoctorByUserId.FirstName = firstName;
+                            getDoctorByUserId.LastName = lastName;
+                            getDoctorByUserId.BirthDay = birthDay;
+                            user.Email = email;
+                            user.PhoneNumber = phoneNumber;
+                            user.UserName = userName;
+                            account.RemovePassword(id);
+                            account.AddPassword(id, password);
+                            this._doctorService.UpdateEntity(getDoctorByUserId);
+                        }
+                    this._userService.UpdateEntity(user);
+                    break;
+                case "Patient":
+                        var getPatientByUserId = _patientService.EntietiesList().FirstOrDefault(p => p.UserId == id);
+                        if (getPatientByUserId != null)
+                        {
+                            getPatientByUserId.FirstName = firstName;
+                            getPatientByUserId.LastName = lastName;
+                            getPatientByUserId.BirthDay = birthDay;
+                            user.Email = email;
+                            user.PhoneNumber = phoneNumber;
+                            user.UserName = userName;
+                            account.RemovePassword(id);
+                            account.AddPassword(id, password);
+                            this._patientService.UpdateEntity(getPatientByUserId);
+                        }
+                    this._userService.UpdateEntity(user);
+                    break;
+                case "Admin":
+                        user.Email = email;
+                        user.PhoneNumber = phoneNumber;
+                        user.UserName = userName;
+                        account.RemovePassword(id);
+                        account.AddPassword(id, password);
+                        this._userService.UpdateEntity(user);
+                    break;
+                default:
+                    break;
+            }
+        }
+
         public JsonResult GetInitialData()
         {
             var initDto = new InitDTO();
@@ -142,7 +194,9 @@ namespace KonsorcjumLekarzy.Controllers
                 {
                     id = u.Id,
                     RoleName = role.FirstOrDefault(),
-                    UserName = u.UserName
+                    UserName = u.UserName,
+                    Email = u.Email,
+                    PhoneNumber = u.PhoneNumber
                 }).ToList();
 
             var specializationDto = _specializationService.EntietiesList().Select(spec => new SpecializationDTO()
@@ -172,6 +226,12 @@ namespace KonsorcjumLekarzy.Controllers
                 {
                     id = _userService.EntietiesList().Where(u => u.Id == d.UserId).Select(s => s.Id).FirstOrDefault(),
                     UserName = _userService.EntietiesList().Where(u => u.Id == d.UserId).Select(s => s.UserName).FirstOrDefault(),
+                    FirstName = d.FirstName,
+                    LastName = d.LastName,
+                    BirthDay = d.BirthDay,
+                    PhoneNumber = _userService.EntietiesList().Where(u => u.Id == d.UserId).Select(s => s.Email).FirstOrDefault(),
+                    Email = _userService.EntietiesList().Where(u => u.Id == d.UserId).Select(s => s.PhoneNumber).FirstOrDefault(),
+                    RoleName = account.GetRoles(d.UserId).FirstOrDefault()
                 }
             }).ToList();
 
@@ -185,6 +245,12 @@ namespace KonsorcjumLekarzy.Controllers
                 {
                     id = _userService.EntietiesList().Where(u => u.Id == p.UserId).Select(s => s.Id).FirstOrDefault(),
                     UserName = _userService.EntietiesList().Where(u => u.Id == p.UserId).Select(s => s.UserName).FirstOrDefault(),
+                    FirstName = p.FirstName,
+                    Email = _userService.EntietiesList().Where(u => u.Id == p.UserId).Select(s => s.Email).FirstOrDefault(),
+                    LastName = p.LastName,
+                    BirthDay = p.BirthDay,
+                    PhoneNumber = _userService.EntietiesList().Where(u => u.Id == p.UserId).Select(s => s.PhoneNumber).FirstOrDefault(),
+                    RoleName = account.GetRoles(p.UserId).FirstOrDefault()
                 }
             }).ToList();
 
