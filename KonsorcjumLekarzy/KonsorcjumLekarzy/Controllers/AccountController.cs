@@ -14,6 +14,7 @@ using KonsorcjumLekarzy.Models;
 using KonsorcjumLekarzy.Database.Model;
 using KonsorcjumLekarzy.Database.Repository;
 using KonsorcjumLekarzy.Infrastucture;
+using KonsorcjumLekarzy.Interfaces;
 using KonsorcjumLekarzy.Services;
 using Microsoft.AspNet.Identity.EntityFramework;
 using WebGrease.Css.Extensions;
@@ -178,6 +179,22 @@ namespace KonsorcjumLekarzy.Controllers
             var dbPatient = new GenericRepository<Patient>();
             var dbSpecialization = new GenericRepository<Specialization>();
 
+            // Send email with confirmation of settings account 
+            var confirmationServices = new ConfirmationServices();
+            var emailStructur = new EmailStructure()
+            {
+                From = "35michal@gmail.com",
+                To = model.Email,
+                Messages = $"<h1>Hello {model.FirstName}</h1> <br/><br/> Thanks you for register to the portal !<br/><br/>User: {model.FirstName} {model.LastName}<br/>Password: {model.Password} <br/><br/> Best regards !",
+                Subject = "Register to the Konsorcjum Lekarzy"
+            };
+
+            var sendEmail = confirmationServices.SendEmail(emailStructur);
+            if (!sendEmail)
+            {
+                return RedirectToAction("Login","Account");
+            }
+
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
@@ -212,7 +229,8 @@ namespace KonsorcjumLekarzy.Controllers
                     {
                         UserManager.AddToRole(user.Id, TypeRole.Admin.ToString());
                     }
-
+                    
+                    
 
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     

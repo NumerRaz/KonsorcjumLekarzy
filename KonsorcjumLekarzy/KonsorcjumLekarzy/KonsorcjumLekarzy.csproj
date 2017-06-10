@@ -243,10 +243,13 @@
     </Compile>
     <Compile Include="Infrastucture\ManageAccount.cs" />
     <Compile Include="Infrastucture\TypeRole.cs" />
+    <Compile Include="Infrastucture\EmailStructure.cs" />
+    <Compile Include="Interfaces\IConfirmationEmail.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DTOs\InitDTO.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ConfirmationServices.cs" />
     <Compile Include="Services\DoctorService.cs" />
     <Compile Include="Services\IGenericService.cs" />
     <Compile Include="Services\PatientService.cs" />
@@ -767,7 +770,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administration\Views\Shared\Patient\" />
-    <Folder Include="Interfaces\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
