@@ -154,9 +154,12 @@ namespace KonsorcjumLekarzy.Controllers
 
             foreach (var role in roles)
             {
-                avaliableRole.Add(role.Name.ToString());
+                if (role.Name.ToString() != "Admin")
+                {
+                    avaliableRole.Add(role.Name.ToString());
+                }
             }
-
+            
             var vm = new RegisterViewModel()
             {
                 AccountType = avaliableRole
