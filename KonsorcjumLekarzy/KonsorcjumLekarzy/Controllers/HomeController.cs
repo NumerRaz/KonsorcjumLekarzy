@@ -24,14 +24,17 @@ namespace KonsorcjumLekarzy.Controllers
         private readonly IGenericService<Specialization> _specializationService;
         private readonly IGenericService<Visit> _visitService;
         private readonly IGenericService<ApplicationUser> _userService;
+        private readonly IGenericService<Prescription> _prescriptionService;
 
-        public HomeController(IGenericService<Doctor> doctorService, IGenericService<Patient> patientService, IGenericService<Specialization> specializationService, IGenericService<Visit> visitService, IGenericService<ApplicationUser> userService)
+
+        public HomeController(IGenericService<Doctor> doctorService, IGenericService<Patient> patientService, IGenericService<Specialization> specializationService, IGenericService<Visit> visitService, IGenericService<ApplicationUser> userService, IGenericService<Prescription> prescriptionService)
         {
             _doctorService = doctorService;
             _patientService = patientService;
             _specializationService = specializationService;
             _visitService = visitService;
             _userService = userService;
+            _prescriptionService = prescriptionService;
         }
 
         [Authorize]
@@ -266,7 +269,14 @@ namespace KonsorcjumLekarzy.Controllers
                     Duration = vi.Duration,
                     StartDate = vi.StartDate,
                     PatientId = vi.PatientId,
-                    DoctorId = vi.DoctorId
+                    DoctorId = vi.DoctorId,
+                    PrescriptionDtos = this._prescriptionService.EntietiesList().Where(x => x.VisitID == vi.VisitID).Select(n => new PrescriptionDTO()
+                    {
+                        VisitID = n.VisitID,
+                        Dosage = n.Dosage,
+                        DrugName = n.DrugName,
+                        UseDrugPerDay = n.UseDrugPerDay
+                    }).ToList()
                 }).ToList();
             }
             else if (role.FirstOrDefault() == "Patient")
@@ -279,15 +289,31 @@ namespace KonsorcjumLekarzy.Controllers
                     Duration = vi.Duration,
                     StartDate = vi.StartDate,
                     PatientId = vi.PatientId,
-                    DoctorId = vi.DoctorId
+                    DoctorId = vi.DoctorId,
+                    PrescriptionDtos = this._prescriptionService.EntietiesList().Where(x => x.VisitID == vi.VisitID).Select(n => new PrescriptionDTO()
+                    {
+                        VisitID = n.VisitID,
+                        Dosage = n.Dosage,
+                        DrugName = n.DrugName,
+                        UseDrugPerDay = n.UseDrugPerDay
+                    }).ToList()
                 }).ToList();
             }
+
+            var prescriptions = this._prescriptionService.EntietiesList().Select(n => new PrescriptionDTO()
+            {
+                VisitID = n.VisitID,
+                Dosage = n.Dosage,
+                DrugName = n.DrugName,
+                UseDrugPerDay = n.UseDrugPerDay
+            }).ToList();
 
             initDto.DoctorDto = doctorsDto;
             initDto.PatientDto = patientsDto;
             initDto.UserDto = userDto;
             initDto.SpecializationDto = specializationDto.ToList();
             initDto.VisitDto = visitDto.ToList();
+            initDto.PrescriptionDto = prescriptions; 
 
             return initDto;
         }

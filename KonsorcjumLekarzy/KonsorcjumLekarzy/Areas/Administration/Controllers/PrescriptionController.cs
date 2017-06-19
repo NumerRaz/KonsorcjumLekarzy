@@ -81,7 +81,8 @@ namespace KonsorcjumLekarzy.Areas.Administration.Controllers
         // GET: Administration/Prescription/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var result = this._prescriptionService.ShowEntity(id);
+            return View("Delete", result);
         }
 
         // POST: Administration/Prescription/Delete/5
@@ -93,7 +94,7 @@ namespace KonsorcjumLekarzy.Areas.Administration.Controllers
 
             if (entity != null) _prescriptionService.DeleteEntity(entity.PrescriptionId);
 
-            return View("Create");
+            return RedirectToAction("Index");
         }
     }
 }

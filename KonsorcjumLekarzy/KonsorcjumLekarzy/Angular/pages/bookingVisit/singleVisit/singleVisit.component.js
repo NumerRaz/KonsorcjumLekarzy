@@ -23,7 +23,11 @@
                 });
         };
 
-        vm.confirmVisit = function() {
+        vm.showPrescription = function (event) {
+            console.log(event);
+        }
+
+        vm.confirmVisit = function () {
             saveChanges();
         };
 
@@ -35,7 +39,7 @@
     {
         templateUrl: "Angular/pages/bookingVisit/singleVisit/singleVisit.html",
         bindings: {
-            visit: "<"
+            visit: "="
         },
         controllerAs: "vm",
         controller: controller

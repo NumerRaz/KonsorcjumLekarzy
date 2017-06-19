@@ -15,6 +15,7 @@ namespace KonsorcjumLekarzy.Models.DTOs
         public List<SpecializationDTO> SpecializationDto { get; set; }
         public List<UserDTO> UserDto { get; set; }
         public List<PatientDTO> PatientDto { get; set; }
+        public List<PrescriptionDTO> PrescriptionDto { get; set; }
     }
 
     public class PatientDTO
@@ -45,6 +46,14 @@ namespace KonsorcjumLekarzy.Models.DTOs
         public string SpecializationDescription { get; set; }
     }
 
+    public class PrescriptionDTO
+    {
+        public int VisitID { get; set; }
+        public string DrugName { get; set; }
+        public string UseDrugPerDay { get; set; }
+        public string Dosage { get; set; }
+    }
+
     public class VisitDTO
     {
         public int VisitID { get; set; }
@@ -53,6 +62,7 @@ namespace KonsorcjumLekarzy.Models.DTOs
         public DateTime StartDate { get; set; }
         public int Duration { get; set; }
         public bool Confirmation { get; set; }
+        public List<PrescriptionDTO> PrescriptionDtos { get; set; }
     }
 
     public class DoctorDTO

@@ -1,18 +1,29 @@
 ﻿
 
 <div class="panel panel-primary contextual-example-panel bootstrap-pane">
-    <div class="col-md-8 col-xs-12">
-        <div class="panel-heading">{{vm.visit.startDate}}</div>
+    
+    <div class="row">
+        <!--<div class="panel-heading">{{vm.visit.startDate}}</div>-->
         <div class="panel-body">
+            <div class="row">Date: {{vm.visit.startDate}}</div>
             <div class="row">DoctorId: {{vm.visit.doctorId}}</div>
             <div class="row">Duration: {{vm.visit.duration}}</div>
-            <div class="row">Confirmation: {{vm.visit.confirmation}}</div>
+            <!--<div class="row">Confirmation: {{vm.visit.confirmation}}</div>-->
         </div>
     </div>
-    <div ng-if="vm.visit.confirmation === false" class="col-md-4 col-xs-12">
-        <div></div>
-        <button ng-click="vm.confirmVisit()" ng-hide="vm.visit.confirmation" type="button" class="btn btn-danger btn-lg" style="margin-top: 23%;">
-            Confirmed
+
+    <div class="row" style="margin-bottom: 10px;">
+        <div ng-if="vm.visit.confirmation === false">
+            <button ng-click="vm.confirmVisit()" ng-hide="vm.visit.confirmation" type="button" class="btn btn-danger btn-lg">
+                Confirmed
+            </button>
+        </div>
+    </div>
+
+    <div class="row">
+        <button ng-click="vm.showPrescription($event)" type="button" class="btn btn-default btn-lg">
+            Prescription
         </button>
     </div>
+
 </div>
