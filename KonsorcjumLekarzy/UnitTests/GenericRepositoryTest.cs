@@ -122,7 +122,7 @@ namespace UnitTests
             var result = specjalizationController.Index();
 
             //Assert
-            Assert.IsInstanceOfType(result, typeof(HttpNotFoundResult));
+            Assert.IsInstanceOfType(result, typeof(ActionResult));
         }
     }
 }

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<KonsorcjumLekarzy.Database.Model.Prescription>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Administration/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.VisitID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DrugName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UseDrugPerDay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dosage)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.VisitID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DrugName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UseDrugPerDay)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dosage)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PrescriptionId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PrescriptionId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PrescriptionId })
+        </td>
+    </tr>
+}
+
+</table>

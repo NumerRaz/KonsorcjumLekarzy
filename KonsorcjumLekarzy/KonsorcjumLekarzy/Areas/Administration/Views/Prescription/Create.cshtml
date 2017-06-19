@@ -1,0 +1,72 @@
+﻿@model KonsorcjumLekarzy.Models.PrescriptionViewModels
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Administration/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Prescription</h4>
+        <hr/>
+        @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+        @Html.HiddenFor(model => model.PrescriptionId)
+
+
+        @if (Model.VisitsId.Count != null)
+        {
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Patients</label>
+                <div class="col-sm-10">
+                    @foreach (var item in Model.VisitsId)
+                    {
+                        <div>
+                            @Html.RadioButtonFor(x => x.VisitSelectedId, item)
+                            <span> @item </span>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DrugName, new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DrugName, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.DrugName, "", new {@class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UseDrugPerDay, new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UseDrugPerDay, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.UseDrugPerDay, "", new {@class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Dosage, new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Dosage, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.Dosage, "", new {@class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default"/>
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

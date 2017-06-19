@@ -11,6 +11,7 @@ namespace KonsorcjumLekarzy.Database.Model
     public class Doctor
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int DoctorId { get; set; }
 
         [Required]

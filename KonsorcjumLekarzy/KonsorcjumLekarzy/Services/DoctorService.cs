@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using KonsorcjumLekarzy.Database.Repository;
 using KonsorcjumLekarzy.Database.Model;
+using KonsorcjumLekarzy.Database.Repository;
 
 namespace KonsorcjumLekarzy.Services
 {
     public class DoctorService : IGenericService<Doctor>
     {
-
         private readonly IRepository<Doctor> repository;
 
         public DoctorService(IRepository<Doctor> repository)
@@ -17,10 +14,8 @@ namespace KonsorcjumLekarzy.Services
             this.repository = repository;
         }
 
-
         public IList<Doctor> EntietiesList()
         {
-
             return repository.GetAll().ToList();
         }
 
@@ -36,15 +31,14 @@ namespace KonsorcjumLekarzy.Services
 
         public void DeleteEntity(object ID)
         {
-            Doctor doctor = repository.Get(ID);
+            var doctor = repository.Get(ID);
             repository.Delete(doctor);
         }
 
         public Doctor ShowEntity(object ID)
         {
-            Doctor doctor = repository.Get(ID);
+            var doctor = repository.Get(ID);
             return doctor;
         }
-
     }
 }

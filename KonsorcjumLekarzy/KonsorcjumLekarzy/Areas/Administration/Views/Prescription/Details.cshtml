@@ -1,0 +1,51 @@
+﻿@model KonsorcjumLekarzy.Database.Model.Prescription
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Administration/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Prescription</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.VisitID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VisitID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DrugName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DrugName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UseDrugPerDay)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UseDrugPerDay)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dosage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dosage)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PrescriptionId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

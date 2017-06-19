@@ -231,6 +231,7 @@
     <Compile Include="Areas\Administration\Controllers\AdminController.cs" />
     <Compile Include="Areas\Administration\Controllers\DocotrsController.cs" />
     <Compile Include="Areas\Administration\Controllers\PatientController.cs" />
+    <Compile Include="Areas\Administration\Controllers\PrescriptionController.cs" />
     <Compile Include="Areas\Administration\Controllers\SpecializationController.cs" />
     <Compile Include="Areas\Administration\Controllers\UsersController.cs" />
     <Compile Include="Areas\Administration\Controllers\VisitController.cs" />
@@ -248,11 +249,13 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DTOs\InitDTO.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\PrescriptionViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ConfirmationServices.cs" />
     <Compile Include="Services\DoctorService.cs" />
     <Compile Include="Services\IGenericService.cs" />
     <Compile Include="Services\PatientService.cs" />
+    <Compile Include="Services\PrescriptionService.cs" />
     <Compile Include="Services\SpecialisationService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Services\VisitService.cs" />
@@ -633,6 +636,12 @@
     <Content Include="Areas\Administration\Views\Specialization\Create.cshtml" />
     <Content Include="Areas\Administration\Views\Specialization\Edit.cshtml" />
     <Content Include="Areas\Administration\Views\Specialization\Delete.cshtml" />
+    <Content Include="ClassDiagram1.cd" />
+    <Content Include="Areas\Administration\Views\Prescription\Index.cshtml" />
+    <Content Include="Areas\Administration\Views\Prescription\Details.cshtml" />
+    <Content Include="Areas\Administration\Views\Prescription\Create.cshtml" />
+    <Content Include="Areas\Administration\Views\Prescription\Edit.cshtml" />
+    <Content Include="Areas\Administration\Views\Prescription\Delete.cshtml" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
