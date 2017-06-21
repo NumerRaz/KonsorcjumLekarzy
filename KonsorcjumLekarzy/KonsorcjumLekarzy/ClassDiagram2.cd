@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="KonsorcjumLekarzy.Services.DoctorService">
+    <Position X="5.5" Y="6" Width="3.5" />
+    <AssociationLine Name="IGenericService" Type="KonsorcjumLekarzy.Services.IGenericService&lt;T&gt;" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.656" Y="6" />
+        <Point X="7.656" Y="5.024" />
+        <Point X="11" Y="5.024" />
+        <Point X="11" Y="4.373" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAACAAAABAAEAAAAAAAAAQAAAAAAAAAAAwA=</HashCode>
+      <FileName>Services\DoctorService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="IGenericService" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="KonsorcjumLekarzy.Areas.Administration.Controllers.DocotrsController">
+    <Position X="3.25" Y="2.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEABgACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Areas\Administration\Controllers\DocotrsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KonsorcjumLekarzy.Services.PatientService">
+    <Position X="9.25" Y="6" Width="3.25" />
+    <AssociationLine Name="IGenericService" Type="KonsorcjumLekarzy.Services.IGenericService&lt;T&gt;" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10.875" Y="6" />
+        <Point X="10.875" Y="5.625" />
+        <Point X="11" Y="5.625" />
+        <Point X="11" Y="4.373" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAACAAAABAAEAAAAAAAAAQAAAAAAAAAAAwA=</HashCode>
+      <FileName>Services\PatientService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="IGenericService" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="KonsorcjumLekarzy.Services.PrescriptionService">
+    <Position X="12.75" Y="6" Width="3" />
+    <AssociationLine Name="IGenericService" Type="KonsorcjumLekarzy.Services.IGenericService&lt;T&gt;" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="14.281" Y="6" />
+        <Point X="14.281" Y="5.024" />
+        <Point X="11" Y="5.024" />
+        <Point X="11" Y="4.373" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAABAAAAABAAEAAAAAAAAAQAAAAAAAAAAAwA=</HashCode>
+      <FileName>Services\PrescriptionService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="IGenericService" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="KonsorcjumLekarzy.Services.IGenericService&lt;T&gt;">
+    <Position X="9.5" Y="2.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>EAAQAAAAAAAAAAAABAAEAAAAAAAAAQAAAAAAAAAAAgA=</HashCode>
+      <FileName>Services\IGenericService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="DocotrsController" />
+    </ShowAsAssociation>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

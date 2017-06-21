@@ -18,8 +18,19 @@ namespace KonsorcjumLekarzy.Services
                 this.repository = repository;
             }
 
+        public IGenericService<object> IGenericService
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
 
-            public IList<Patient> EntietiesList()
+            set
+            {
+            }
+        }
+
+        public IList<Patient> EntietiesList()
             {
 
                 return repository.GetAll().ToList();

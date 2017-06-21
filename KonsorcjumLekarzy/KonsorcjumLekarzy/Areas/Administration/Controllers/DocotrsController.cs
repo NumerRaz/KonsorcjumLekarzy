@@ -12,7 +12,7 @@ using KonsorcjumLekarzy.Services;
 namespace KonsorcjumLekarzy.Areas.Administration.Controllers
 {
     [Authorize]
-    public class DocotrsController : Controller
+    public class DocotrsController
     {
         private readonly IGenericService<Doctor> doctorService;
         private readonly IGenericService<ApplicationUser> userService;
@@ -24,7 +24,6 @@ namespace KonsorcjumLekarzy.Areas.Administration.Controllers
             this.userService = userService;
             this.specializationService = specializationService;
         }
-
 
         public ActionResult Details(int ID)
         {
@@ -84,7 +83,7 @@ namespace KonsorcjumLekarzy.Areas.Administration.Controllers
             return View(doctorService.ShowEntity(ID));
         }
 
-    
+
         [HttpPost]
         public ActionResult Edit(Doctor doctor)
         {
@@ -98,7 +97,7 @@ namespace KonsorcjumLekarzy.Areas.Administration.Controllers
                 else
                     return View(doctor);
             }
-            catch(DataException)
+            catch (DataException)
             {
                 ModelState.AddModelError(string.Empty, "Unable to save changes. Try Again");
             }
@@ -125,7 +124,7 @@ namespace KonsorcjumLekarzy.Areas.Administration.Controllers
 
             userService.DeleteEntity(doctor.UserId);
             doctorService.DeleteEntity(ID);
-         
+
             return RedirectToAction("Index");
         }
     }

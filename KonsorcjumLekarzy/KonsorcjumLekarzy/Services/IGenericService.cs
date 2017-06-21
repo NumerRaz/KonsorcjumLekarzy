@@ -9,6 +9,9 @@ namespace KonsorcjumLekarzy.Services
 {
     public interface IGenericService<T>
     {
+        Areas.Administration.Controllers.DocotrsController DocotrsController { get; set; }
+        Areas.Administration.Controllers.DocotrsController DocotrsController1 { get; set; }
+
         //CRUD
         IList<T> EntietiesList();
         void CreateEntity(T entity);

@@ -14,6 +14,30 @@ namespace KonsorcjumLekarzy.Services
             this.repository = repository;
         }
 
+        public IGenericService<object> IGenericService
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
+        public IGenericService<object> IGenericService1
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+
+            set
+            {
+            }
+        }
+
         public IList<Doctor> EntietiesList()
         {
             return repository.GetAll().ToList();

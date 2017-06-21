@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="KonsorcjumLekarzy.Database.Repository.GenericRepository&lt;T&gt;">
+    <Position X="9.5" Y="8.75" Width="3" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="KonsorcjumLekarzy.Areas.Administration.Controllers.DocotrsController">
+    <Position X="1.75" Y="5.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEABgACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Areas\Administration\Controllers\DocotrsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KonsorcjumLekarzy.Services.DoctorService">
+    <Position X="6.25" Y="8.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAACAAAABAAEAAAAAAAAAQAAAAAAgAAAAwA=</HashCode>
+      <FileName>Services\DoctorService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="IGenericService1" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="KonsorcjumLekarzy.Database.Repository.IRepository&lt;T&gt;">
+    <Position X="9.5" Y="5.5" Width="3" />
+    <TypeIdentifier />
+  </Interface>
+  <Interface Name="KonsorcjumLekarzy.Services.IGenericService&lt;T&gt;">
+    <Position X="6.25" Y="5.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>EAAQAAAAAAAAAAAABAAEAAAAAAAAAQAAAAAAAAAAAgA=</HashCode>
+      <FileName>Services\IGenericService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="DocotrsController1" />
+    </ShowAsAssociation>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

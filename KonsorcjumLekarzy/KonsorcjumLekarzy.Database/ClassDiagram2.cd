@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="KonsorcjumLekarzy.Database.Model.Doctor">
+    <Position X="6" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAEAAAAQQAAAAAAgAAAAKAAAAAAAAAAAAAEg=</HashCode>
+      <FileName>Model\Doctor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KonsorcjumLekarzy.Database.Model.ApplicationUser">
+    <Position X="3.25" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\IdentityModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KonsorcjumLekarzy.Database.Model.ApplicationDbContext" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\IdentityModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KonsorcjumLekarzy.Database.Model.ModelCustomContext">
+    <Position X="0.5" Y="2" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAABgAAAAAAAEA=</HashCode>
+      <FileName>Model\ModelCustomContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KonsorcjumLekarzy.Database.Model.Patient">
+    <Position X="6" Y="3.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAQAAAAQQAAAAAAgAAAAIAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Model\Patient.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KonsorcjumLekarzy.Database.Model.Prescription">
+    <Position X="8" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAUQAAAAAAAAAAIAAAAAAAAIAAAAAAAQ=</HashCode>
+      <FileName>Model\Prescription.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KonsorcjumLekarzy.Database.Model.Specialization">
+    <Position X="6" Y="5.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAQAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Model\Specialization.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KonsorcjumLekarzy.Database.Model.Visit">
+    <Position X="8" Y="2.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAiAEAAAAAAAAAAAAACAAQAIAAAIEAAKAA=</HashCode>
+      <FileName>Model\Visit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KonsorcjumLekarzy.Database.Repository.GenericRepository&lt;T&gt;" BaseTypeListCollapsed="true">
+    <Position X="3.25" Y="2.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAQAAMAAAAAAAABAAQAAAAAAAAEAAAAACgAAAAAAAAA=</HashCode>
+      <FileName>Repository\GenericRepository.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="KonsorcjumLekarzy.Database.Repository.IRepository&lt;T&gt;">
+    <Position X="3.25" Y="5.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAMAAAAAAAABAAAAAAAAAAAEAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Repository\IRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
